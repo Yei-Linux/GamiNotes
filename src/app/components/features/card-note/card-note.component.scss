@@ -1,0 +1,16 @@
+.notecard {
+  &__body {
+    @apply px-4 py-4;
+
+    &__title {
+      @apply flex justify-between;
+
+      &__icon {
+      }
+    }
+  }
+
+  &__footer {
+    @apply flex gap-4 px-4 pb-4;
+  }
+}

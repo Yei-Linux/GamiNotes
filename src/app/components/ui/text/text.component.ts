@@ -8,6 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TextComponent implements OnInit {
   @Input()
   text: string = '';
+  @Input()
+  classname: string = '';
+  @Input()
+  color?: string = 'black';
 
   isValidText() {
     return this.text;

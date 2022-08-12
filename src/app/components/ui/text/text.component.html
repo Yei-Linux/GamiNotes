@@ -1,0 +1,9 @@
+<p
+  *ngIf="isValidText()"
+  [ngStyle]="{
+    color: color
+  }"
+  [ngClass]="'font-sans ' + classname"
+>
+  {{ text }}
+</p>

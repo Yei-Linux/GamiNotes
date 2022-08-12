@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TopicNotes } from '../dummy';
-import { CardModel } from '../models';
+import { TopicNotes } from '../../../dummy';
+import { CardModel } from '../../../models';
 
 @Component({
   selector: 'app-notes-home',
