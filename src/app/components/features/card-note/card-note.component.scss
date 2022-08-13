@@ -11,6 +11,11 @@
   }
 
   &__footer {
-    @apply flex gap-4 px-4 pb-4;
+    @apply flex justify-between px-4 pb-4;
+    &__actions {
+      @apply flex gap-4;
+    }
+    &__share {
+    }
   }
 }

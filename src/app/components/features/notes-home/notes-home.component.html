@@ -1,1 +1,15 @@
-<app-card-note *ngFor="let card of noteCards" [card]="card"></app-card-note>
+<div class="noteshome">
+  <div class="noteshome__header">
+    <app-notes-header></app-notes-header>
+  </div>
+
+  <div class="noteshome__content">
+    <app-card-note *ngFor="let card of noteCards" [card]="card"></app-card-note>
+  </div>
+
+  <div class="noteshome__addbutton">
+    <app-button [icon]="'plus'" [variation]="'primary'">
+      <button-content> Crear Conjunto </button-content>
+    </app-button>
+  </div>
+</div>

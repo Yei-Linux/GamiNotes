@@ -11,6 +11,7 @@ import { CardComponent } from './components/ui/card/card.component';
 import { TextComponent } from './components/ui/text/text.component';
 import { ButtonComponent } from './components/ui/button/button.component';
 import { IconComponent } from './components/ui/icon/icon.component';
+import { NotesHeaderComponent } from './components/features/notes-header/notes-header.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { IconComponent } from './components/ui/icon/icon.component';
     NotesHomeComponent,
     ButtonComponent,
     IconComponent,
+    NotesHeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

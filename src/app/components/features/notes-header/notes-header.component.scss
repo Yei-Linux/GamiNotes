@@ -1,0 +1,11 @@
+.notesheader {
+  @apply p-3;
+
+  &__title {
+    @apply mb-3;
+  }
+
+  &__actions {
+    @apply flex gap-3;
+  }
+}

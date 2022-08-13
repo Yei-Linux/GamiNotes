@@ -1,3 +1,11 @@
 <button [ngClass]="'buttonui ' + 'buttonui--' + variation">
+  <span class="buttonui__icon--before" *ngIf="hasIcon('before')"
+    ><app-icon [identifier]="icon ?? ''"></app-icon
+  ></span>
+
   <ng-content select="button-content"></ng-content>
+
+  <span class="buttonui__icon--after" *ngIf="hasIcon('after')"
+    ><app-icon [identifier]="icon ?? ''"></app-icon
+  ></span>
 </button>

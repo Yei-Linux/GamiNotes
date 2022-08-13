@@ -1,14 +1,24 @@
 .buttonui {
   @apply font-semibold py-1 px-2 rounded-full;
-}
 
-.buttonui--primary {
-  background-color: #54bab9;
-  color: white;
-}
+  &--primary {
+    background-color: #54bab9;
+    color: white;
+  }
 
-.buttonui--secondary {
-  background-color: white;
-  color: #54bab9;
-  border: 1px solid #54bab9;
+  &--secondary {
+    background-color: white;
+    color: #54bab9;
+    border: 1px solid #54bab9;
+  }
+
+  &__icon {
+    display: inline-block;
+    &--before {
+      margin-left: 5px;
+    }
+    &--after {
+      margin-right: 5px;
+    }
+  }
 }

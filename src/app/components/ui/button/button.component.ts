@@ -8,6 +8,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ButtonComponent implements OnInit {
   @Input()
   variation: string = 'primary';
+  @Input()
+  icon?: string;
+  @Input()
+  iconPosition?: 'before' | 'after' = "before";
   @Output()
   onClick: EventEmitter<any> = new EventEmitter<any>();
 
@@ -17,5 +21,13 @@ export class ButtonComponent implements OnInit {
 
   handleClick() {
     this.onClick.emit();
+  }
+
+  hasIcon(position: 'before' | 'after'): boolean {
+    return (
+      position === this.iconPosition &&
+      this.icon !== null &&
+      this.icon !== undefined
+    );
   }
 }

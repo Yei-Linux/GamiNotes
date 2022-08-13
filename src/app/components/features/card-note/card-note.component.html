@@ -1,28 +1,43 @@
-<app-card>
-  <card-body>
-    <div class="notecard__body">
-      <div class="notecard__body__title">
-        <app-text [text]="card.title" [classname]="'text-xl'"></app-text>
-        <div class="notecard__body__title__icon">
-          <app-icon [identifier]="'more-vertical-outline'"></app-icon>
+<div class="notecard">
+  <app-card>
+    <card-body>
+      <div class="notecard__body">
+        <div class="notecard__body__title">
+          <app-text [text]="card.title" [classname]="'text-xl'"></app-text>
+          <div class="notecard__body__title__icon">
+            <app-icon [identifier]="'three-dots-vertical'"></app-icon>
+          </div>
+        </div>
+        <app-text
+          [text]="getCardMemorizedText()"
+          [classname]="'text-sm'"
+          [color]="'darkgray'"
+        ></app-text>
+      </div>
+    </card-body>
+
+    <card-footer>
+      <div class="notecard__footer">
+        <div class="notecard__footer__actions">
+          <app-button [variation]="'secondary'" *ngIf="hasNotes()">
+            <button-content> Revisar </button-content>
+          </app-button>
+          <app-button
+            [icon]="'plus'"
+            [variation]="'primary'"
+            *ngIf="!hasNotes()"
+          >
+            <button-content> Añadir Tarjetas </button-content>
+          </app-button>
+          <app-button [variation]="'secondary'">
+            <button-content> Practicar </button-content>
+          </app-button>
+        </div>
+
+        <div class="notecard__footer__share">
+          <app-icon [identifier]="'share'"></app-icon>
         </div>
       </div>
-      <app-text
-        [text]="card.title"
-        [classname]="'text-sm'"
-        [color]="'darkgray'"
-      ></app-text>
-    </div>
-  </card-body>
-
-  <card-footer>
-    <div class="notecard__footer">
-      <app-button [variation]="'secondary'">
-        <button-content> Revisar </button-content>
-      </app-button>
-      <app-button [variation]="'secondary'">
-        <button-content> Practicar </button-content>
-      </app-button>
-    </div>
-  </card-footer>
-</app-card>
+    </card-footer>
+  </app-card>
+</div>

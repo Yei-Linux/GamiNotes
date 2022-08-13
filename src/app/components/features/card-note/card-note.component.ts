@@ -13,4 +13,14 @@ export class CardNoteComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  hasNotes(): boolean {
+    return this.card.totalNotes > 0;
+  }
+
+  getCardMemorizedText(): string {
+    const memorizedText = `${this.card.memorizedCounter}/${this.card.totalNotes} cartas memorizadas`;
+
+    return memorizedText;
+  }
 }
