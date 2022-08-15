@@ -23,4 +23,8 @@ export class CardNoteComponent implements OnInit {
 
     return memorizedText;
   }
+
+  goToNoteDetail(): string {
+    return `/topic/${this.card.id}/notes`;
+  }
 }

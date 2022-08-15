@@ -12,6 +12,8 @@ import { TextComponent } from './components/ui/text/text.component';
 import { ButtonComponent } from './components/ui/button/button.component';
 import { IconComponent } from './components/ui/icon/icon.component';
 import { NotesHeaderComponent } from './components/features/notes-header/notes-header.component';
+import { NotesDetailComponent } from './components/features/notes-detail/notes-detail.component';
+import { TagComponent } from './components/ui/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { NotesHeaderComponent } from './components/features/notes-header/notes-h
     ButtonComponent,
     IconComponent,
     NotesHeaderComponent,
+    NotesDetailComponent,
+    TagComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

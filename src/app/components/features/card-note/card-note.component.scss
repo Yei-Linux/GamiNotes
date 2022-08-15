@@ -17,5 +17,9 @@
     }
     &__share {
     }
+
+    &__link {
+      @apply no-underline;
+    }
   }
 }

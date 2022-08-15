@@ -20,17 +20,42 @@
       <div class="notecard__footer">
         <div class="notecard__footer__actions">
           <app-button [variation]="'secondary'" *ngIf="hasNotes()">
-            <button-content> Revisar </button-content>
+            <button-content>
+              <a
+                class="notecard__footer__link"
+                [routerLink]="goToNoteDetail()"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                >Revisar</a
+              >
+            </button-content>
           </app-button>
           <app-button
+            (onClick)="goToNoteDetail()"
             [icon]="'plus'"
             [variation]="'primary'"
             *ngIf="!hasNotes()"
           >
-            <button-content> Añadir Tarjetas </button-content>
+            <button-content>
+              <a
+                class="notecard__footer__link"
+                [routerLink]="goToNoteDetail()"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                >Añadir Tarjetas</a
+              >
+            </button-content>
           </app-button>
-          <app-button [variation]="'secondary'">
-            <button-content> Practicar </button-content>
+          <app-button (onClick)="goToNoteDetail()" [variation]="'secondary'">
+            <button-content>
+              <a
+                class="notecard__footer__link"
+                [routerLink]="goToNoteDetail()"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                >Practicar</a
+              >
+            </button-content>
           </app-button>
         </div>
 
