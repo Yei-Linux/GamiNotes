@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CardModel } from '../../../models';
+import { CardModel } from '../../../../models';
 
 @Component({
   selector: 'app-card-note',

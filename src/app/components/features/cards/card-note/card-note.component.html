@@ -1,10 +1,13 @@
-<div class="notecard">
+<div class="gamicard">
   <app-card>
     <card-body>
-      <div class="notecard__body">
-        <div class="notecard__body__title">
-          <app-text [text]="card.title" [classname]="'text-xl'"></app-text>
-          <div class="notecard__body__title__icon">
+      <div class="gamicard__body">
+        <div class="gamicard__body__title">
+          <app-text
+            [text]="card.title | titlecase"
+            [classname]="'text-xl'"
+          ></app-text>
+          <div class="gamicard__body__title__icon">
             <app-icon [identifier]="'three-dots-vertical'"></app-icon>
           </div>
         </div>
@@ -17,12 +20,12 @@
     </card-body>
 
     <card-footer>
-      <div class="notecard__footer">
-        <div class="notecard__footer__actions">
+      <div class="gamicard__footer">
+        <div class="gamicard__footer__actions">
           <app-button [variation]="'secondary'" *ngIf="hasNotes()">
             <button-content>
               <a
-                class="notecard__footer__link"
+                class="gamicard__footer__link"
                 [routerLink]="goToNoteDetail()"
                 routerLinkActive="active"
                 ariaCurrentWhenActive="page"
@@ -38,7 +41,7 @@
           >
             <button-content>
               <a
-                class="notecard__footer__link"
+                class="gamicard__footer__link"
                 [routerLink]="goToNoteDetail()"
                 routerLinkActive="active"
                 ariaCurrentWhenActive="page"
@@ -49,7 +52,7 @@
           <app-button (onClick)="goToNoteDetail()" [variation]="'secondary'">
             <button-content>
               <a
-                class="notecard__footer__link"
+                class="gamicard__footer__link"
                 [routerLink]="goToNoteDetail()"
                 routerLinkActive="active"
                 ariaCurrentWhenActive="page"
@@ -59,7 +62,7 @@
           </app-button>
         </div>
 
-        <div class="notecard__footer__share">
+        <div class="gamicard__footer__icons">
           <app-icon [identifier]="'share'"></app-icon>
         </div>
       </div>

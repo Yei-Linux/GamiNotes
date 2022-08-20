@@ -1,3 +1,7 @@
 .tagui {
-  @apply block rounded-full p-2;
+  @apply block rounded-full px-2;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

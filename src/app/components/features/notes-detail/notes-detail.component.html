@@ -1,7 +1,31 @@
-<div class="notesdetail">
-  <div class="notesdetail__header">
-    <app-tag [background]="'red'" [color]="'white'">
-      <tag-content> Total: 8 </tag-content>
+<app-notes-wrapper>
+  <notes-header>
+    <app-tag [background]="'#54bab9'" [color]="'white'" [weigth]="'bold'">
+      <tag-content> {{ "Total: 8" | titlecase }} </tag-content>
     </app-tag>
-  </div>
-</div>
+
+    <app-tag [background]="'white'" [color]="'#54bab9'" [border]="'#54bab9'">
+      <tag-content> No memorizadas: 8 </tag-content>
+    </app-tag>
+
+    <app-tag [background]="'white'" [color]="'#54bab9'" [border]="'#54bab9'">
+      <tag-content> Memorizadas: 0 </tag-content>
+    </app-tag>
+  </notes-header>
+
+  <notes-content>
+    <app-card-study
+      *ngFor="let cardToStudy of cardsToStudy"
+      [card]="cardToStudy"
+    ></app-card-study>
+  </notes-content>
+
+  <notes-footer>
+    <app-button [icon]="'plus'" [variation]="'primary'">
+      <button-content> Practicar </button-content>
+    </app-button>
+    <app-button [icon]="'plus'" [variation]="'primary'">
+      <button-content> Añadir Tarjetas </button-content>
+    </app-button>
+  </notes-footer>
+</app-notes-wrapper>

@@ -1,4 +1,4 @@
-.notecard {
+.gamicard {
   &__body {
     @apply px-4 py-4;
 
@@ -15,11 +15,8 @@
     &__actions {
       @apply flex gap-4;
     }
-    &__share {
-    }
-
-    &__link {
-      @apply no-underline;
+    &__icons {
+      @apply flex gap-4;
     }
   }
 }

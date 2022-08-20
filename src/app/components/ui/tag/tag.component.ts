@@ -10,6 +10,10 @@ export class TagComponent implements OnInit {
   background: string = 'rgb(5, 146, 170)';
   @Input()
   color: string = 'white';
+  @Input()
+  border?: string;
+  @Input()
+  weigth?: 'bold' | 'normal' = 'normal';
 
   constructor() {}
 
@@ -19,6 +23,8 @@ export class TagComponent implements OnInit {
     return {
       background: this.background,
       color: this.color,
+      border: `1px solid ${this.border ?? this.background}`,
+      'font-weight': this.weigth,
     };
   }
 }

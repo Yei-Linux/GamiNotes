@@ -1,0 +1,36 @@
+.noteswrapper {
+  @apply relative;
+
+  height: 100vh;
+
+  &__header {
+    &::ng-deep {
+      notes-header {
+        @apply flex gap-2 w-full;
+      }
+    }
+  }
+
+  &__content {
+    &::ng-deep {
+      notes-content {
+        @apply p-3;
+
+        display: grid;
+        grid-gap: 1rem;
+
+        background-color: #f9fbf4;
+      }
+    }
+  }
+
+  &__footer {
+    &::ng-deep {
+      notes-footer {
+        bottom: 0px;
+
+        @apply fixed w-full flex gap-2 justify-center p-6;
+      }
+    }
+  }
+}

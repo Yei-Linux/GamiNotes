@@ -1,0 +1,29 @@
+<div class="gamicard">
+  <app-card>
+    <card-body>
+      <div class="gamicard__body">
+        <div class="gamicard__body__title">
+          <app-text [text]="card.title" [classname]="'text-xl'"></app-text>
+        </div>
+        <app-text
+          [text]="card.description"
+          [classname]="'text-sm'"
+          [color]="'darkgray'"
+        ></app-text>
+      </div>
+    </card-body>
+
+    <card-footer>
+      <div class="gamicard__footer">
+        <div class="gamicard__footer__actions">
+          <app-icon [identifier]="'three-dots-vertical'"></app-icon>
+        </div>
+
+        <div class="gamicard__footer__icons">
+          <app-icon [identifier]="'share'"></app-icon>
+          <app-icon [identifier]="'three-dots-vertical'"></app-icon>
+        </div>
+      </div>
+    </card-footer>
+  </app-card>
+</div>
