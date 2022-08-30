@@ -13,4 +13,8 @@ export class CardStudyComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  goToNoteForm() {
+    return `${this.card.id}`;
+  }
 }

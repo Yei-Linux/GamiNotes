@@ -11,7 +11,9 @@ export class ButtonComponent implements OnInit {
   @Input()
   icon?: string;
   @Input()
-  iconPosition?: 'before' | 'after' = "before";
+  iconPosition?: 'before' | 'after' = 'before';
+  @Input()
+  type?: 'button' | 'submit' = 'button';
   @Output()
   onClick: EventEmitter<any> = new EventEmitter<any>();
 

@@ -1,0 +1,7 @@
+<div class="formfield">
+  <label *ngIf="labelText" class="formfield__label" [for]="labelFor">{{
+    labelText
+  }}</label>
+
+  <ng-content select="form-field-input"></ng-content>
+</div>

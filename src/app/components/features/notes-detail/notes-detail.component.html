@@ -25,7 +25,9 @@
       <button-content> Practicar </button-content>
     </app-button>
     <app-button [icon]="'plus'" [variation]="'primary'">
-      <button-content> Añadir Tarjetas </button-content>
+      <button-content>
+        <a [routerLink]="goToNoteForm()"> Añadir Tarjetas </a>
+      </button-content>
     </app-button>
   </notes-footer>
 </app-notes-wrapper>

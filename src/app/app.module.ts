@@ -17,9 +17,8 @@ import { TagComponent } from './components/ui/tag/tag.component';
 import { CardStudyComponent } from './components/features/cards/card-study/card-study.component';
 import { NotesWrapperComponent } from './components/layouts/notes-wrapper/notes-wrapper.component';
 import { NoteFormComponent } from './components/features/note-form/note-form.component';
-import { FormsModule } from '@angular/forms';
-import { InputComponent } from './components/ui/input/input.component';
-import { TextAreaComponent } from './components/ui/text-area/text-area.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormFieldComponent } from './components/ui/form-field/form-field.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +35,9 @@ import { TextAreaComponent } from './components/ui/text-area/text-area.component
     CardStudyComponent,
     NotesWrapperComponent,
     NoteFormComponent,
-    InputComponent,
-    TextAreaComponent,
+    FormFieldComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

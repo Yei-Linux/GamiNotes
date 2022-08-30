@@ -12,4 +12,8 @@ export class NotesDetailComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  goToNoteForm() {
+    return `add`;
+  }
 }
