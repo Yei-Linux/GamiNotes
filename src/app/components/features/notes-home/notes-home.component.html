@@ -9,7 +9,9 @@
 
   <notes-footer>
     <app-button [icon]="'plus'" [variation]="'primary'">
-      <button-content> Crear Conjunto </button-content>
+      <button-content>
+        <a [routerLink]="goToTopicForm()"> Crear Conjunto </a>
+      </button-content>
     </app-button>
   </notes-footer>
 </app-notes-wrapper>

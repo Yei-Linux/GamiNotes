@@ -12,4 +12,8 @@ export class NotesHomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  goToTopicForm() {
+    return `/topic/add`;
+  }
 }

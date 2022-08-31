@@ -1,24 +1,24 @@
 <div class="gamiform">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <app-form-field [labelFor]="'title_note_form'" [labelText]="'Title'">
+    <app-form-field [labelFor]="'title_topic_form'" [labelText]="'Title'">
       <form-field-input>
         <input
           class="gamiform__input"
           type="text"
           placeholder="Type title..."
-          formControlName="title_note_form"
+          formControlName="title_topic_form"
         />
       </form-field-input>
     </app-form-field>
 
     <app-form-field
-      [labelFor]="'description_note_form'"
-      [labelText]="'Description'"
+      [labelFor]="'description_topic_form'"
+      [labelText]="'Description(Optional)'"
     >
       <form-field-input>
         <textarea
           class="gamiform__input"
-          formControlName="description_note_form"
+          formControlName="description_topic_form"
           placeholder="Type description..."
           id=""
           cols="30"

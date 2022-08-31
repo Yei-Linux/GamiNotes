@@ -15,6 +15,6 @@ export class CardStudyComponent implements OnInit {
   ngOnInit(): void {}
 
   goToNoteForm() {
-    return `${this.card.id}`;
+    return `edit/${this.card.id}`;
   }
 }

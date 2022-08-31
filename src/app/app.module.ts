@@ -19,6 +19,7 @@ import { NotesWrapperComponent } from './components/layouts/notes-wrapper/notes-
 import { NoteFormComponent } from './components/features/note-form/note-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldComponent } from './components/ui/form-field/form-field.component';
+import { TopicFormComponent } from './components/features/topic-form/topic-form.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FormFieldComponent } from './components/ui/form-field/form-field.compon
     NotesWrapperComponent,
     NoteFormComponent,
     FormFieldComponent,
+    TopicFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
