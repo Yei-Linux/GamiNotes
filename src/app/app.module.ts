@@ -20,6 +20,7 @@ import { NoteFormComponent } from './components/features/note-form/note-form.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldComponent } from './components/ui/form-field/form-field.component';
 import { TopicFormComponent } from './components/features/topic-form/topic-form.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,13 @@ import { TopicFormComponent } from './components/features/topic-form/topic-form.
     FormFieldComponent,
     TopicFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

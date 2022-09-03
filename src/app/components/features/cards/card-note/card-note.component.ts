@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { CardModel } from '../../../../models';
 
 @Component({
@@ -7,6 +8,8 @@ import { CardModel } from '../../../../models';
   styleUrls: ['./card-note.component.scss'],
 })
 export class CardNoteComponent implements OnInit {
+  @ViewChild('SwalPracticeModes')
+  swalPracticeModes?: SwalComponent;
   @Input()
   card: CardModel = new CardModel();
 
@@ -26,5 +29,9 @@ export class CardNoteComponent implements OnInit {
 
   goToNoteDetail(): string {
     return `/topic/${this.card.id}/notes`;
+  }
+
+  handleShowModal() {
+    this.swalPracticeModes?.fire();
   }
 }
