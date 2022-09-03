@@ -1,0 +1,23 @@
+<div
+  class="listitemui"
+  [ngStyle]="{
+    background: background
+  }"
+  (clicK)="handleClickListItem()"
+>
+  <div class="listitemui__img" *ngIf="src">
+    <img [src]="src" alt="listiitem__img__alt" />
+  </div>
+  <div class="listitemui__content">
+    <app-text
+      [text]="title"
+      [classname]="'text-sm text-left font-semibold listitemui__content__title'"
+      [color]="'black'"
+    ></app-text>
+    <app-text
+      [text]="subtitle"
+      [classname]="'text-sm text-left font-light listitemui__content__subtitle'"
+      [color]="'black'"
+    ></app-text>
+  </div>
+</div>

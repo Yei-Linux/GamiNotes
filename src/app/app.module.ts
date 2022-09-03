@@ -21,6 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldComponent } from './components/ui/form-field/form-field.component';
 import { TopicFormComponent } from './components/features/topic-form/topic-form.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { PracticeModeModalComponent } from './components/features/modals/practice-mode-modal/practice-mode-modal.component';
+import { ListItemComponent } from './components/ui/list-item/list-item.component';
+import { TooltipModule } from './components/ui/tooltip/tooltip.module';
 
 @NgModule({
   declarations: [
@@ -39,12 +42,15 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     NoteFormComponent,
     FormFieldComponent,
     TopicFormComponent,
+    PracticeModeModalComponent,
+    ListItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    TooltipModule,
     SweetAlert2Module.forRoot(),
   ],
   providers: [],

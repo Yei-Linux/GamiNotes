@@ -34,4 +34,8 @@ export class CardNoteComponent implements OnInit {
   handleShowModal() {
     this.swalPracticeModes?.fire();
   }
+
+  onCloseModal() {
+    this.swalPracticeModes?.close();
+  }
 }

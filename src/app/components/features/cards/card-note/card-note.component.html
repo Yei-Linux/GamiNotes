@@ -1,10 +1,14 @@
 <div class="gamicard">
   <swal
     #SwalPracticeModes
+    customClass="swal__practicemodemodal"
     [showConfirmButton]="false"
     [showCancelButton]="false"
   >
-    <div *swalPortal="undefined">Testing Modal</div>
+    <app-practice-mode-modal
+      *swalPortal="undefined"
+      (onCloseModal)="onCloseModal()"
+    ></app-practice-mode-modal>
   </swal>
 
   <app-card>
@@ -63,7 +67,10 @@
         </div>
 
         <div class="gamicard__footer__icons">
-          <app-icon [identifier]="'share'"></app-icon>
+          <app-icon
+            [tooltip]="'Share these notes by url!'"
+            [identifier]="'share'"
+          ></app-icon>
         </div>
       </div>
     </card-footer>

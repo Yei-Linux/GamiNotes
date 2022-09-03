@@ -18,11 +18,17 @@
     <card-footer>
       <div class="gamicard__footer">
         <div class="gamicard__footer__actions">
-          <app-icon [identifier]="'three-dots-vertical'"></app-icon>
+          <app-icon
+            [tooltip]="'Listen it!'"
+            [identifier]="'volume-up'"
+          ></app-icon>
         </div>
 
         <div class="gamicard__footer__icons">
-          <app-icon [identifier]="'share'"></app-icon>
+          <app-icon
+            [tooltip]="'Share this note!'"
+            [identifier]="'share'"
+          ></app-icon>
           <app-icon [identifier]="'three-dots-vertical'"></app-icon>
         </div>
       </div>

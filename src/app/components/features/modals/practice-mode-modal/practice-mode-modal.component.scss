@@ -1,0 +1,14 @@
+.modal {
+  padding: 1rem;
+  &__header {
+    @apply flex justify-between gap-4;
+  }
+
+  &__body {
+    @apply mt-2;
+
+    &__item {
+      @apply mb-2;
+    }
+  }
+}

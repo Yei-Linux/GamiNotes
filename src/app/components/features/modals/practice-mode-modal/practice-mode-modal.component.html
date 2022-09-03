@@ -1,0 +1,27 @@
+<div class="modal">
+  <div class="modal__header">
+    <div class="modal__header__title">
+      <app-text
+        classname="text-lg font-bold"
+        [text]="'Practicar'"
+        [color]="'black'"
+      ></app-text>
+    </div>
+    <div class="modal__header__actions"></div>
+
+    <div class="modal__header__close" (click)="handleCloseModal()">
+      <app-icon [identifier]="'x-lg'"></app-icon>
+    </div>
+  </div>
+
+  <div class="modal__body">
+    <div class="modal__body__item" *ngFor="let practiceMode of practiceModes">
+      <app-list-item
+        background="#f3f3f3"
+        [title]="practiceMode.title"
+        [subtitle]="practiceMode.subtitle"
+        [src]="practiceMode.src"
+      ></app-list-item>
+    </div>
+  </div>
+</div>

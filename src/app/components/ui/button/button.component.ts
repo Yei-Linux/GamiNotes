@@ -15,7 +15,7 @@ export class ButtonComponent implements OnInit {
   @Input()
   type?: 'button' | 'submit' = 'button';
   @Output()
-  onClick: EventEmitter<any> = new EventEmitter<any>();
+  onClick: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
