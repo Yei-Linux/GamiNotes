@@ -1,3 +1,15 @@
+<swal
+  #SwalPracticeModes
+  customClass="swal__practicemodemodal"
+  [showConfirmButton]="false"
+  [showCancelButton]="false"
+>
+  <app-practice-mode-modal
+    *swalPortal="undefined"
+    (onCloseModal)="onCloseModal()"
+  ></app-practice-mode-modal>
+</swal>
+
 <app-notes-wrapper>
   <notes-header>
     <app-tag [background]="'#54bab9'" [color]="'white'" [weigth]="'bold'">
@@ -21,7 +33,11 @@
   </notes-content>
 
   <notes-footer>
-    <app-button [icon]="'plus'" [variation]="'primary'">
+    <app-button
+      (onClick)="handleShowModal()"
+      [icon]="'plus'"
+      [variation]="'primary'"
+    >
       <button-content> Practicar </button-content>
     </app-button>
     <app-button [icon]="'plus'" [variation]="'primary'">

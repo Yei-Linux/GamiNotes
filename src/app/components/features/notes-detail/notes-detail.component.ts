@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { CardsToStudy } from 'src/app/dummy/cardsToStudy';
 import { CardStudy } from 'src/app/models/cardStudy.model';
 
@@ -8,6 +9,8 @@ import { CardStudy } from 'src/app/models/cardStudy.model';
   styleUrls: ['./notes-detail.component.scss'],
 })
 export class NotesDetailComponent implements OnInit {
+  @ViewChild('SwalPracticeModes')
+  swalPracticeModes?: SwalComponent;
   cardsToStudy: CardStudy[] = CardsToStudy;
   constructor() {}
 
@@ -15,5 +18,13 @@ export class NotesDetailComponent implements OnInit {
 
   goToNoteForm() {
     return `add`;
+  }
+
+  handleShowModal() {
+    this.swalPracticeModes?.fire();
+  }
+
+  onCloseModal() {
+    this.swalPracticeModes?.close();
   }
 }

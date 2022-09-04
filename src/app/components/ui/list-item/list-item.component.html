@@ -1,23 +1,25 @@
 <div
-  class="listitemui"
+  [ngClass]="'listitemui ' + classname"
   [ngStyle]="{
-    background: background
+    background: background,
+    padding: padding
   }"
   (clicK)="handleClickListItem()"
 >
-  <div class="listitemui__img" *ngIf="src">
-    <img [src]="src" alt="listiitem__img__alt" />
+  <div class="listitemui__img" *ngIf="src || icon">
+    <img [src]="src" alt="listiitem__img__alt" *ngIf="type === 'img' && src" />
+    <app-icon [identifier]="icon" *ngIf="type === 'icon' && icon"></app-icon>
   </div>
   <div class="listitemui__content">
     <app-text
       [text]="title"
       [classname]="'text-sm text-left font-semibold listitemui__content__title'"
-      [color]="'black'"
+      [color]="titleColor"
     ></app-text>
     <app-text
       [text]="subtitle"
       [classname]="'text-sm text-left font-light listitemui__content__subtitle'"
-      [color]="'black'"
+      [color]="subTitleColor"
     ></app-text>
   </div>
 </div>

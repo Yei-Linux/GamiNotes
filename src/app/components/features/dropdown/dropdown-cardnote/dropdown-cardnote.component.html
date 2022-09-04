@@ -1,0 +1,12 @@
+<div class="dropdown__cardnote">
+  <app-list-item
+    *ngFor="let option of dropdownCardNotes"
+    classname="listitemui__dropdowncardnote"
+    type="icon"
+    background="black"
+    padding="8px"
+    [icon]="option.icon"
+    [title]="option.title"
+    titleColor="white"
+  ></app-list-item>
+</div>

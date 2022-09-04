@@ -7,13 +7,25 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
   @Input()
+  classname?: string;
+  @Input()
   title: string = '';
+  @Input()
+  titleColor?: string = 'black';
   @Input()
   subtitle: string = '';
   @Input()
+  subTitleColor?: string = 'black';
+  @Input()
   src?: string = '';
   @Input()
+  icon?: string = '';
+  @Input()
+  type?: 'img' | 'icon' = 'img';
+  @Input()
   background?: string = 'white';
+  @Input()
+  padding?: string = '1rem';
   @Output()
   onClick: EventEmitter<any> = new EventEmitter();
 

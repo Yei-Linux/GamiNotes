@@ -1,3 +1,7 @@
+<ng-template #tooltipdropdown>
+  <app-dropdown-cardstudy></app-dropdown-cardstudy>
+</ng-template>
+
 <div class="gamicard">
   <app-card>
     <card-body>
@@ -29,7 +33,10 @@
             [tooltip]="'Share this note!'"
             [identifier]="'share'"
           ></app-icon>
-          <app-icon [identifier]="'three-dots-vertical'"></app-icon>
+          <app-icon
+            [componentTooltip]="tooltipdropdown"
+            [identifier]="'three-dots-vertical'"
+          ></app-icon>
         </div>
       </div>
     </card-footer>
