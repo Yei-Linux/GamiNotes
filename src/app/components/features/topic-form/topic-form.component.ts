@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TopicForm } from 'src/app/models';
 
 @Component({
   selector: 'app-topic-form',
@@ -8,16 +9,20 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./topic-form.component.scss'],
 })
 export class TopicFormComponent implements OnInit {
-  private id: string | null = null;
+  @Input()
+  id: string | null = null;
+  @Input()
+  topicForm: TopicForm = new TopicForm();
+
   public form: FormGroup = this.fb.group({
     title_topic_form: [
-      '',
+      this.topicForm.title,
       {
         validator: [Validators.required, Validators.minLength(5)],
       },
     ],
     description_topic_form: [
-      '',
+      this.topicForm.description,
       {
         validator: [],
       },
@@ -39,9 +44,14 @@ export class TopicFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.id ?? this.route.snapshot.paramMap.get('id');
 
     if (!this.isEditMode) return;
+
+    this.form.patchValue({
+      title_topic_form: this.topicForm.title,
+      description_topic_form: this.topicForm.description,
+    });
   }
 
   onSubmit(): void {

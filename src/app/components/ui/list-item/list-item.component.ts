@@ -26,6 +26,8 @@ export class ListItemComponent implements OnInit {
   background?: string = 'white';
   @Input()
   padding?: string = '1rem';
+  @Input()
+  url?: string | null;
   @Output()
   onClick: EventEmitter<any> = new EventEmitter();
 

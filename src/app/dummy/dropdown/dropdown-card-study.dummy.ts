@@ -1,9 +1,5 @@
 export const dropDownCardStudy = [
   {
-    title: 'Editar',
-    icon: 'pencil',
-  },
-  {
     title: 'Estadisticas',
     icon: 'bar-chart-line',
   },

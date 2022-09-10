@@ -28,6 +28,7 @@ import { CustomTooltipComponent } from './components/ui/custom-tooltip/custom-to
 import { CustomTooltipDirective } from './components/ui/custom-tooltip/custom-tooltip.directive';
 import { DropdownCardnoteComponent } from './components/features/dropdown/dropdown-cardnote/dropdown-cardnote.component';
 import { DropdownCardstudyComponent } from './components/features/dropdown/dropdown-cardstudy/dropdown-cardstudy.component';
+import { NoteFormModalComponent } from './components/features/modals/note-form-modal/note-form-modal.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DropdownCardstudyComponent } from './components/features/dropdown/dropd
     CustomTooltipDirective,
     DropdownCardnoteComponent,
     DropdownCardstudyComponent,
+    NoteFormModalComponent,
   ],
   imports: [
     BrowserModule,

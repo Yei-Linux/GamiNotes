@@ -11,7 +11,23 @@
     <app-icon [identifier]="icon" *ngIf="type === 'icon' && icon"></app-icon>
   </div>
   <div class="listitemui__content">
+    <a
+      *ngIf="url"
+      class="listitemui__content__link"
+      [routerLink]="url"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <app-text
+        [text]="title"
+        [classname]="
+          'text-sm text-left font-semibold listitemui__content__title'
+        "
+        [color]="titleColor"
+      ></app-text
+    ></a>
     <app-text
+      *ngIf="!url"
       [text]="title"
       [classname]="'text-sm text-left font-semibold listitemui__content__title'"
       [color]="titleColor"

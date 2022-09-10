@@ -1,0 +1,20 @@
+<div class="modal">
+  <div class="modal__header">
+    <div class="modal__header__title">
+      <app-text
+        classname="text-lg font-bold"
+        [text]="'Edit'"
+        [color]="'black'"
+      ></app-text>
+    </div>
+    <div class="modal__header__actions"></div>
+
+    <div class="modal__header__close" (click)="handleCloseModal()">
+      <app-icon [identifier]="'x-lg'"></app-icon>
+    </div>
+  </div>
+
+  <div class="modal__body">
+    <app-note-form></app-note-form>
+  </div>
+</div>
