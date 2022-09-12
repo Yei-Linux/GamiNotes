@@ -3,7 +3,23 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    baseUrl: 'http://127.0.0.1:5000/gami-notes/api/v1',
+    topics: {
+      findAll: '/topics',
+      findById: '/topics/{{id}}',
+      create: '/topics',
+      udpate: '/topics/{{id}}',
+      findTopicWithNotes: '/topics/{{id}}/notes',
+    },
+    notes: {
+      findAll: '/notes',
+      findById: '/notes/{{id}}',
+      create: '/notes',
+      udpate: '/notes/{{id}}',
+    },
+  },
 };
 
 /*
