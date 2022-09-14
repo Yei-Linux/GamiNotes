@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, take, throwError } from 'rxjs';
+import { UpdateNoteRequest } from 'src/app/models';
 import { Note } from 'src/app/models/pojos/note.model';
 import { NotesService } from 'src/app/services/notes.service';
 
@@ -15,10 +16,12 @@ export class NoteFormComponent implements OnInit {
   public form: FormGroup = this.createForm();
 
   private id: string | null = null;
+  private topicId: string | null = null;
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private noteService: NotesService
   ) {}
 
@@ -55,7 +58,13 @@ export class NoteFormComponent implements OnInit {
     if (!this.id) return;
     this.noteService
       .findById(this.id)
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        catchError((error) => {
+          console.warn(error);
+          return throwError(() => new Error('Error on getting note by id'));
+        })
+      )
       .subscribe((note: Note | null) => {
         this.note = note;
 
@@ -66,8 +75,42 @@ export class NoteFormComponent implements OnInit {
       });
   }
 
+  buildUpdateNoteRequest() {
+    if (!this.note) throw new Error('Note is empty');
+
+    const noteFormValue = this.form.value;
+    const noteRequest = new UpdateNoteRequest(
+      noteFormValue.title_note_form,
+      noteFormValue.description_note_form,
+      this.note.is_liked,
+      this.note.is_memorized,
+      this.note.is_ignored
+    );
+
+    return noteRequest;
+  }
+
+  udpateNote() {
+    if (!this.id) return;
+    const request = this.buildUpdateNoteRequest();
+
+    this.noteService
+      .udpateNote(request, this.id)
+      .pipe(
+        catchError((error) => {
+          const message = 'Error on update note';
+          console.warn(message);
+          return throwError(() => message);
+        })
+      )
+      .subscribe((response) => {
+        this.router.navigate(['topic', this.topicId, 'notes']);
+      });
+  }
+
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('cardid');
+    this.topicId = this.route.snapshot.paramMap.get('id');
 
     if (!this.isEditMode) return;
 
@@ -75,7 +118,6 @@ export class NoteFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.warn('Your order has been submitted', this.form.value);
-    this.form.reset();
+    this.udpateNote();
   }
 }
