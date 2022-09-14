@@ -12,7 +12,7 @@
   </swal>
 
   <ng-template #tooltipdropdown>
-    <app-dropdown-cardnote [card]="card"></app-dropdown-cardnote>
+    <app-dropdown-cardnote [topic]="topic"></app-dropdown-cardnote>
   </ng-template>
 
   <app-card>
@@ -20,7 +20,7 @@
       <div class="gamicard__body">
         <div class="gamicard__body__title">
           <app-text
-            [text]="card.title | titlecase"
+            [text]="topic.title | titlecase"
             [classname]="'text-xl'"
           ></app-text>
           <div class="gamicard__body__title__icon">

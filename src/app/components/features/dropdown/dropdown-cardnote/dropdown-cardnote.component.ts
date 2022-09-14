@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { dropDownCardNotes } from 'src/app/dummy/dropdown/dropdown-card-note.dummy';
-import { CardModel, TopicForm } from 'src/app/models';
+import { CardModel, Topic, TopicForm } from 'src/app/models';
 import { IDropDownCardNote } from 'src/app/types/dropdownDownCardNote.type';
 
 @Component({
@@ -14,7 +14,7 @@ export class DropdownCardnoteComponent implements OnInit {
   swalEditCardNote?: SwalComponent;
 
   @Input()
-  card: CardModel = new CardModel();
+  topic: Topic = new Topic();
 
   dropdownCardNotes: IDropDownCardNote[] = [];
 
@@ -22,8 +22,8 @@ export class DropdownCardnoteComponent implements OnInit {
 
   get topicForm(): TopicForm {
     return new TopicForm()
-      .setTitle(this.card.title)
-      .setDescription(this.card.title);
+      .setTitle(this.topic.title)
+      .setDescription(this.topic.title);
   }
 
   handleShowModal() {

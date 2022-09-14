@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { practiceModesDummy } from 'src/app/dummy/practiceModes.dummy';
-import { PracticeMode } from 'src/app/models/PracticeMode.model';
+import { PracticeMode } from 'src/app/models/practiceMode.model';
 
 @Component({
   selector: 'app-practice-mode-modal',

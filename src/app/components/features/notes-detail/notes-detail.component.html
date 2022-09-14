@@ -10,25 +10,37 @@
   ></app-practice-mode-modal>
 </swal>
 
-<app-notes-wrapper>
+<app-notes-wrapper *ngIf="topicWithNotes$ | async; let topicWithNotes">
   <notes-header>
     <app-tag [background]="'#54bab9'" [color]="'white'" [weigth]="'bold'">
-      <tag-content> {{ "Total: 8" | titlecase }} </tag-content>
+      <tag-content>
+        {{ "Total: " + $any(topicWithNotes).total_notes | titlecase }}
+      </tag-content>
     </app-tag>
 
     <app-tag [background]="'white'" [color]="'#54bab9'" [border]="'#54bab9'">
-      <tag-content> No memorizadas: 8 </tag-content>
+      <tag-content>
+        No memorizadas:
+        {{
+          $any(topicWithNotes).total_notes -
+            $any(topicWithNotes).total_memorized
+        }}
+      </tag-content>
     </app-tag>
 
     <app-tag [background]="'white'" [color]="'#54bab9'" [border]="'#54bab9'">
-      <tag-content> Memorizadas: 0 </tag-content>
+      <tag-content>
+        {{
+          "Memorizadas: " + $any(topicWithNotes).total_memorized | titlecase
+        }}</tag-content
+      >
     </app-tag>
   </notes-header>
 
   <notes-content>
     <app-card-study
-      *ngFor="let cardToStudy of cardsToStudy"
-      [card]="cardToStudy"
+      *ngFor="let note of $any(topicWithNotes).notes"
+      [note]="note"
     ></app-card-study>
   </notes-content>
 

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
-import { CardModel } from '../../../../models';
+import { Topic } from '../../../../models';
 
 @Component({
   selector: 'app-card-note',
@@ -11,24 +11,24 @@ export class CardNoteComponent implements OnInit {
   @ViewChild('SwalPracticeModes')
   swalPracticeModes?: SwalComponent;
   @Input()
-  card: CardModel = new CardModel();
+  topic: Topic = new Topic();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   hasNotes(): boolean {
-    return this.card.totalNotes > 0;
+    return this.topic.notes > 0;
   }
 
   getCardMemorizedText(): string {
-    const memorizedText = `${this.card.memorizedCounter}/${this.card.totalNotes} cartas memorizadas`;
+    const memorizedText = `${this.topic.notes_memorized}/${this.topic.notes} cartas memorizadas`;
 
     return memorizedText;
   }
 
   goToNoteDetail(): string {
-    return `/topic/${this.card.id}/notes`;
+    return `/topic/${this.topic._id}/notes`;
   }
 
   handleShowModal() {

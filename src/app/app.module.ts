@@ -1,5 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { CustomTooltipDirective } from './components/ui/custom-tooltip/custom-to
 import { DropdownCardnoteComponent } from './components/features/dropdown/dropdown-cardnote/dropdown-cardnote.component';
 import { DropdownCardstudyComponent } from './components/features/dropdown/dropdown-cardstudy/dropdown-cardstudy.component';
 import { NoteFormModalComponent } from './components/features/modals/note-form-modal/note-form-modal.component';
+import { APIInterceptor } from './services/apiinterceptor.service';
 
 @NgModule({
   declarations: [
@@ -61,9 +63,16 @@ import { NoteFormModalComponent } from './components/features/modals/note-form-m
     FormsModule,
     ReactiveFormsModule,
     TooltipModule,
+    HttpClientModule,
     SweetAlert2Module.forRoot(),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: APIInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
 })

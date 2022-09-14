@@ -1,4 +1,4 @@
-import { PracticeMode } from '../models/PracticeMode.model';
+import { PracticeMode } from '../models/practiceMode.model';
 
 export const practiceModesDummy: PracticeMode[] = [
   {

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { CardsToStudy } from 'src/app/dummy/cardsToStudy';
-import { noteFormTitleValidator } from 'src/app/validators/note-form-title-validator';
+import { take } from 'rxjs';
+import { Note } from 'src/app/models/pojos/note.model';
+import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
   selector: 'app-note-form',
@@ -10,12 +11,16 @@ import { noteFormTitleValidator } from 'src/app/validators/note-form-title-valid
   styleUrls: ['./note-form.component.scss'],
 })
 export class NoteFormComponent implements OnInit {
+  public note: Note | null = null;
   public form: FormGroup = this.createForm();
 
-  private cardToStudyDummy = CardsToStudy[0];
   private id: string | null = null;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute) {}
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private noteService: NotesService
+  ) {}
 
   get isEditMode() {
     return this.id !== null;
@@ -46,15 +51,27 @@ export class NoteFormComponent implements OnInit {
     return this.isEditMode ? 'pencil' : 'plus';
   }
 
+  fetchNoteById() {
+    if (!this.id) return;
+    this.noteService
+      .findById(this.id)
+      .pipe(take(1))
+      .subscribe((note: Note | null) => {
+        this.note = note;
+
+        this.form.patchValue({
+          title_note_form: this.note?.title,
+          description_note_form: this.note?.description,
+        });
+      });
+  }
+
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('cardid');
 
     if (!this.isEditMode) return;
 
-    this.form.patchValue({
-      title_note_form: this.cardToStudyDummy.title,
-      description_note_form: this.cardToStudyDummy.description,
-    });
+    this.fetchNoteById();
   }
 
   onSubmit(): void {
