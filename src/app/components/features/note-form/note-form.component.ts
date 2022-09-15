@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, take, throwError } from 'rxjs';
 import { UpdateNoteRequest } from 'src/app/models';
 import { Note } from 'src/app/models/pojos/note.model';
+import { CreateNoteRequest } from 'src/app/models/requests/CreateNoteRequest.model';
 import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
@@ -75,6 +76,20 @@ export class NoteFormComponent implements OnInit {
       });
   }
 
+  buildCreateNoteRequest(topicId: string) {
+    const noteFormValue = this.form.value;
+    const noteRequest = new CreateNoteRequest(
+      noteFormValue.title_note_form,
+      noteFormValue.description_note_form,
+      false,
+      false,
+      false,
+      topicId
+    );
+
+    return noteRequest;
+  }
+
   buildUpdateNoteRequest() {
     if (!this.note) throw new Error('Note is empty');
 
@@ -108,6 +123,25 @@ export class NoteFormComponent implements OnInit {
       });
   }
 
+  createNote() {
+    if (!this.topicId) return;
+
+    const request = this.buildCreateNoteRequest(this.topicId);
+
+    this.noteService
+      .createNote(request)
+      .pipe(
+        catchError((error) => {
+          const message = 'Error on create note';
+          console.warn(message);
+          return throwError(() => message);
+        })
+      )
+      .subscribe((response) => {
+        this.router.navigate(['topic', this.topicId, 'notes']);
+      });
+  }
+
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('cardid');
     this.topicId = this.route.snapshot.paramMap.get('id');
@@ -118,6 +152,11 @@ export class NoteFormComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (!this.isEditMode) {
+      this.createNote();
+      return;
+    }
+
     this.udpateNote();
   }
 }

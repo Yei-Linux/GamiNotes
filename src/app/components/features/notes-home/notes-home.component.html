@@ -4,10 +4,7 @@
   </notes-header>
 
   <notes-content>
-    <app-card-note
-      *ngFor="let topic of topics$ | async"
-      [topic]="topic"
-    ></app-card-note>
+    <app-card-note *ngFor="let topic of topics" [topic]="topic"></app-card-note>
   </notes-content>
 
   <notes-footer>

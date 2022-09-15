@@ -31,6 +31,7 @@ import { DropdownCardnoteComponent } from './components/features/dropdown/dropdo
 import { DropdownCardstudyComponent } from './components/features/dropdown/dropdown-cardstudy/dropdown-cardstudy.component';
 import { NoteFormModalComponent } from './components/features/modals/note-form-modal/note-form-modal.component';
 import { APIInterceptor } from './services/apiinterceptor.service';
+import { GlobalStateService } from './store/global-state.service';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { APIInterceptor } from './services/apiinterceptor.service';
       useClass: APIInterceptor,
       multi: true,
     },
+    GlobalStateService,
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

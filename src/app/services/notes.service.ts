@@ -4,6 +4,7 @@ import { map, Observable, shareReplay } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Response, UpdateNoteRequest } from '../models';
 import { Note } from '../models/pojos/note.model';
+import { CreateNoteRequest } from '../models/requests/CreateNoteRequest.model';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,15 @@ export class NotesService {
         environment.api.notes.udpate.replace(/{{id}}/g, noteId),
         note
       )
+      .pipe(
+        map((response) => response.data),
+        shareReplay()
+      );
+  }
+
+  createNote(note: CreateNoteRequest): Observable<Note | null> {
+    return this.http
+      .post<Response<Note>>(environment.api.notes.create, note)
       .pipe(
         map((response) => response.data),
         shareReplay()

@@ -5,10 +5,7 @@
     [showConfirmButton]="false"
     [showCancelButton]="false"
   >
-    <app-practice-mode-modal
-      *swalPortal="undefined"
-      (onCloseModal)="onCloseModal()"
-    ></app-practice-mode-modal>
+    <app-practice-mode-modal *swalPortal="undefined"></app-practice-mode-modal>
   </swal>
 
   <ng-template #tooltipdropdown>

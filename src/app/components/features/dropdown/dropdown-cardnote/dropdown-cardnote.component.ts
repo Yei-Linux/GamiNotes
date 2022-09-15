@@ -1,7 +1,17 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { catchError, throwError } from 'rxjs';
 import { dropDownCardNotes } from 'src/app/dummy/dropdown/dropdown-card-note.dummy';
 import { CardModel, Topic, TopicForm } from 'src/app/models';
+import { TopicsService } from 'src/app/services/topics.service';
+import { GlobalStateService } from 'src/app/store/global-state.service';
 import { IDropDownCardNote } from 'src/app/types/dropdownDownCardNote.type';
 
 @Component({
@@ -12,26 +22,41 @@ import { IDropDownCardNote } from 'src/app/types/dropdownDownCardNote.type';
 export class DropdownCardnoteComponent implements OnInit {
   @ViewChild('SwalEditCardNote')
   swalEditCardNote?: SwalComponent;
-
   @Input()
   topic: Topic = new Topic();
 
   dropdownCardNotes: IDropDownCardNote[] = [];
 
-  constructor() {}
-
-  get topicForm(): TopicForm {
-    return new TopicForm()
-      .setTitle(this.topic.title)
-      .setDescription(this.topic.title);
-  }
+  constructor(
+    private topicService: TopicsService,
+    private globalState: GlobalStateService
+  ) {}
 
   handleShowModal() {
     this.swalEditCardNote?.fire();
   }
 
-  onCloseModal() {
+  handleCloseModal() {
     this.swalEditCardNote?.close();
+  }
+
+  fetchAllTopics() {
+    this.topicService
+      .findAllTopics()
+      .pipe(
+        catchError((error) => {
+          console.warn('Error on getting all topics', error);
+          return throwError(() => new Error('Error on getting all topics'));
+        })
+      )
+      .subscribe((topics) => {
+        topics && this.globalState.setTopic(topics);
+      });
+  }
+
+  onCloseModal() {
+    this.handleCloseModal();
+    this.fetchAllTopics();
   }
 
   ngOnInit(): void {

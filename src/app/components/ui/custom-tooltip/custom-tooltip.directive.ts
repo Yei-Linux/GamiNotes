@@ -68,7 +68,7 @@ export class CustomTooltipDirective extends TooltipLogic<CustomTooltipComponent>
     if (isClickInSelector) return;
 
     const isOutside = this.isOutsideFromTooltip(targetSelected);
-    if (!isOutside) return;
+    //if (!isOutside) return;
 
     this.destroy();
   }
