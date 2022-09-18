@@ -1,0 +1,32 @@
+<div class="modal">
+  <div class="modal__header">
+    <div class="modal__header__title">
+      <app-text
+        classname="text-lg font-bold"
+        [text]="
+          'Do you want to share your notes of this topic with someone else?'
+        "
+        [color]="'black'"
+      ></app-text>
+    </div>
+    <div class="modal__header__actions"></div>
+
+    <div class="modal__header__close" (click)="handleCloseModal()">
+      <app-icon [identifier]="'x-lg'"></app-icon>
+    </div>
+  </div>
+
+  <div class="modal__body">
+    <app-text
+      classname="text-lg font-bold"
+      text="Please click in button below for getting your url."
+      color="black"
+    ></app-text>
+  </div>
+
+  <div class="modal__footer">
+    <app-button [type]="'submit'" [icon]="buttonIcon" [variation]="'primary'">
+      <button-content> Get Url! </button-content>
+    </app-button>
+  </div>
+</div>

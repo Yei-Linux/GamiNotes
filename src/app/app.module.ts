@@ -32,6 +32,7 @@ import { DropdownCardstudyComponent } from './components/features/dropdown/dropd
 import { NoteFormModalComponent } from './components/features/modals/note-form-modal/note-form-modal.component';
 import { APIInterceptor } from './services/apiinterceptor.service';
 import { GlobalStateService } from './store/global-state.service';
+import { ShareModalComponent } from './components/features/modals/share-modal/share-modal.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { GlobalStateService } from './store/global-state.service';
     DropdownCardnoteComponent,
     DropdownCardstudyComponent,
     NoteFormModalComponent,
+    ShareModalComponent,
   ],
   imports: [
     BrowserModule,

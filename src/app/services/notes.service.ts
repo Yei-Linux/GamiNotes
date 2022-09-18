@@ -15,7 +15,7 @@ export class NotesService {
   findById(noteId: string): Observable<Note | null> {
     return this.http
       .get<Response<Note>>(
-        environment.api.notes.findById.replace(/{{id}}/g, noteId)
+        environment.api.notes.findById.replaceParamsInUrl(noteId)
       )
       .pipe(
         map((response) => response.data),
@@ -26,7 +26,7 @@ export class NotesService {
   udpateNote(note: UpdateNoteRequest, noteId: string): Observable<Note | null> {
     return this.http
       .put<Response<Note>>(
-        environment.api.notes.udpate.replace(/{{id}}/g, noteId),
+        environment.api.notes.udpate.replaceParamsInUrl(noteId),
         note
       )
       .pipe(

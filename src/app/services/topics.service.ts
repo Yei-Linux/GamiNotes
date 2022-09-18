@@ -28,7 +28,7 @@ export class TopicsService {
   ): Observable<TopicWithNotesResponse | null> {
     return this.http
       .post<Response<TopicWithNotesResponse>>(
-        environment.api.topics.findTopicWithNotes.replace(/{{id}}/g, topicId),
+        environment.api.topics.findTopicWithNotes.replaceParamsInUrl(topicId),
         request
       )
       .pipe(
@@ -43,7 +43,7 @@ export class TopicsService {
   ): Observable<Topic | null> {
     return this.http
       .put<Response<Topic>>(
-        environment.api.topics.udpate.replace(/{{id}}/g, topicId),
+        environment.api.topics.udpate.replaceParamsInUrl(topicId),
         topic
       )
       .pipe(

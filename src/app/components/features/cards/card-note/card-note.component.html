@@ -8,6 +8,13 @@
     <app-practice-mode-modal *swalPortal="undefined"></app-practice-mode-modal>
   </swal>
 
+  <swal
+    #SwalShareTopic
+    customClass="swal__sharetopicmodal"
+    [showConfirmButton]="false"
+    [showConfirmButton]="false"
+  ></swal>
+
   <ng-template #tooltipdropdown>
     <app-dropdown-cardnote [topic]="topic"></app-dropdown-cardnote>
   </ng-template>
@@ -74,6 +81,7 @@
           <app-icon
             [tooltip]="'Share these notes by url!'"
             [identifier]="'share'"
+            (onClick)="handleShowSharedModal()"
           ></app-icon>
         </div>
       </div>

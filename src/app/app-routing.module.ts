@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'topic/:id/notes/add',
     component: NoteFormComponent,
   },
+  {
+    path: 'public/shared/decks/:id',
+    component: NoteFormComponent,
+  },
 ];
 
 @NgModule({

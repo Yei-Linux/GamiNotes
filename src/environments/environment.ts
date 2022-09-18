@@ -19,6 +19,12 @@ export const environment = {
       create: '/notes',
       udpate: '/notes/{{id}}',
     },
+    shared: {
+      topics: {
+        create: '/shared/topics',
+        findById: 'shared/topics/{{id}}',
+      },
+    },
   },
 };
 

@@ -17,6 +17,8 @@ import { Topic } from '../../../../models';
 export class CardNoteComponent implements OnInit {
   @ViewChild('SwalPracticeModes')
   swalPracticeModes?: SwalComponent;
+  @ViewChild('SwalShareTopic')
+  swalShareTopic?: SwalComponent;
   @Input()
   topic: Topic = new Topic();
 
@@ -43,6 +45,14 @@ export class CardNoteComponent implements OnInit {
   }
 
   onCloseModal() {
+    this.swalPracticeModes?.close();
+  }
+
+  handleShowSharedModal() {
+    this.swalPracticeModes?.fire();
+  }
+
+  onCloseSharedModal() {
     this.swalPracticeModes?.close();
   }
 }
