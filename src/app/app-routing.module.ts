@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NoteFormComponent } from './components/features/note-form/note-form.component';
 import { NotesDetailComponent } from './components/features/notes-detail/notes-detail.component';
 import { NotesHomeComponent } from './components/features/notes-home/notes-home.component';
+import { PublicSharedTopicComponent } from './components/features/public-shared-topic/public-shared-topic.component';
 import { TopicFormComponent } from './components/features/topic-form/topic-form.component';
 
 const routes: Routes = [
@@ -31,8 +32,8 @@ const routes: Routes = [
     component: NoteFormComponent,
   },
   {
-    path: 'public/shared/decks/:id',
-    component: NoteFormComponent,
+    path: 'public/topic/shared/:id/notes',
+    component: PublicSharedTopicComponent,
   },
 ];
 

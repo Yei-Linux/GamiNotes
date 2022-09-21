@@ -100,7 +100,6 @@ export class TopicFormComponent implements OnInit {
   }
 
   createTopic() {
-    console.log(this.user);
     if (!this.user) return;
     const request = this.buildCreateNoteRequest(this.user);
 

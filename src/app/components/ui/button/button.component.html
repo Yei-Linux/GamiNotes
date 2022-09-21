@@ -1,6 +1,6 @@
 <button
   (click)="handleClick()"
-  [ngClass]="'buttonui ' + 'buttonui--' + variation"
+  [ngClass]="className + ' buttonui ' + 'buttonui--' + variation"
   [type]="type"
 >
   <span class="buttonui__icon--before" *ngIf="hasIcon('before')"

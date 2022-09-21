@@ -14,21 +14,15 @@ import { CreateSharedTopicResponse } from '../models/responses/CreateSharedTopic
 export class SharedTopicService {
   constructor(private http: HttpClient) {}
 
-  findSharedTopicById(shared_topic_id: string): Observable<SharedTopic | null> {
+  findSharedTopicByTopicId(topicId: string): Observable<SharedTopic | null> {
     return this.http
       .get<Response<SharedTopic>>(
-        environment.api.shared.topics.findById.replaceParamsInUrl(
-          shared_topic_id
-        )
+        environment.api.shared.topics.findById.replaceParamsInUrl(topicId)
       )
       .pipe(
         map((response) => response.data),
         shareReplay()
       );
-  }
-
-  findSharedTopicByTopicId() {
-    
   }
 
   createSharedTopic(

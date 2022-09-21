@@ -5,7 +5,10 @@
     [showConfirmButton]="false"
     [showCancelButton]="false"
   >
-    <app-practice-mode-modal *swalPortal="undefined"></app-practice-mode-modal>
+    <app-practice-mode-modal
+      *swalPortal="undefined"
+      (onCloseModal)="onCloseModal()"
+    ></app-practice-mode-modal>
   </swal>
 
   <swal
@@ -13,7 +16,13 @@
     customClass="swal__sharetopicmodal"
     [showConfirmButton]="false"
     [showConfirmButton]="false"
-  ></swal>
+  >
+    <app-share-modal
+      [topic]="topic"
+      (onCloseModal)="onCloseModal()"
+      *swalPortal="undefined"
+    ></app-share-modal>
+  </swal>
 
   <ng-template #tooltipdropdown>
     <app-dropdown-cardnote [topic]="topic"></app-dropdown-cardnote>

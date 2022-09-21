@@ -8,12 +8,6 @@ export const dropDownCardNotes = (): IDropDownCardNote[] => [
     url: null,
   },
   {
-    id: 'share',
-    title: 'Compartir',
-    icon: 'share',
-    url: null,
-  },
-  {
     id: 'delete',
     title: 'Eliminar',
     icon: 'trash',

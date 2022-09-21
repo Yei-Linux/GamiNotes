@@ -22,7 +22,10 @@ export const environment = {
     shared: {
       topics: {
         create: '/shared/topics',
-        findById: 'shared/topics/{{id}}',
+        findById: '/shared/topics/{{id}}',
+      },
+      public: {
+        findById: '/public/topics/shared/{{id}}',
       },
     },
   },

@@ -33,6 +33,8 @@ import { NoteFormModalComponent } from './components/features/modals/note-form-m
 import { APIInterceptor } from './services/apiinterceptor.service';
 import { GlobalStateService } from './store/global-state.service';
 import { ShareModalComponent } from './components/features/modals/share-modal/share-modal.component';
+import './helpers/prototypes';
+import { PublicSharedTopicComponent } from './components/features/public-shared-topic/public-shared-topic.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { ShareModalComponent } from './components/features/modals/share-modal/sh
     DropdownCardstudyComponent,
     NoteFormModalComponent,
     ShareModalComponent,
+    PublicSharedTopicComponent,
   ],
   imports: [
     BrowserModule,

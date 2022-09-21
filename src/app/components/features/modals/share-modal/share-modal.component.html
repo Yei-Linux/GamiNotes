@@ -3,9 +3,7 @@
     <div class="modal__header__title">
       <app-text
         classname="text-lg font-bold"
-        [text]="
-          'Do you want to share your notes of this topic with someone else?'
-        "
+        [text]="sharedTitle"
         [color]="'black'"
       ></app-text>
     </div>
@@ -18,15 +16,40 @@
 
   <div class="modal__body">
     <app-text
-      classname="text-lg font-bold"
-      text="Please click in button below for getting your url."
+      classname="text-lg font-normal"
+      [text]="sharedDescription"
+      color="black"
+    ></app-text>
+
+    <app-text
+      *ngIf="sharedTimeExpiration"
+      classname="text-sm font-normal"
+      [text]="sharedTimeExpiration"
       color="black"
     ></app-text>
   </div>
 
-  <div class="modal__footer">
-    <app-button [type]="'submit'" [icon]="buttonIcon" [variation]="'primary'">
-      <button-content> Get Url! </button-content>
+  <div class="modal__footer shared__modalfooter">
+    <app-button
+      (onClick)="handleClickGettingUrl()"
+      [type]="'submit'"
+      [icon]="'share'"
+      [variation]="'primary'"
+      className="shared__modalfooter__btn"
+    >
+      <button-content>
+        <a
+          *ngIf="sharedUrl"
+          class="gamicard__footer__link"
+          [routerLink]="sharedUrl"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          target="_blank"
+        >
+          {{ sharedUrlText }}</a
+        >
+        <ng-template *ngIf="sharedUrl"> {{ sharedUrlText }}</ng-template>
+      </button-content>
     </app-button>
   </div>
 </div>

@@ -49,10 +49,10 @@ export class CardNoteComponent implements OnInit {
   }
 
   handleShowSharedModal() {
-    this.swalPracticeModes?.fire();
+    this.swalShareTopic?.fire();
   }
 
   onCloseSharedModal() {
-    this.swalPracticeModes?.close();
+    this.swalShareTopic?.close();
   }
 }
