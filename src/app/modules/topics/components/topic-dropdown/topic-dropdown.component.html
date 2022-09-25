@@ -1,0 +1,28 @@
+<div class="topicdropdown">
+  <swal
+    #SwalEditTopic
+    customClass="swal__edittopic"
+    [showConfirmButton]="false"
+    [showCancelButton]="false"
+  >
+    <app-topic-edit-modal
+      [topic]="topic"
+      *swalPortal="undefined"
+      (onCloseModal)="onCloseModal()"
+    ></app-topic-edit-modal>
+  </swal>
+
+  <ng-container *ngFor="let option of topicDropDownOptions">
+    <app-list-item
+      classname="listitemui__topicdropdown"
+      type="icon"
+      background="black"
+      (click)="handleClickListItem(option)"
+      padding="8px"
+      [url]="option.url"
+      [icon]="option.icon"
+      [title]="option.title"
+      titleColor="white"
+    ></app-list-item>
+  </ng-container>
+</div>

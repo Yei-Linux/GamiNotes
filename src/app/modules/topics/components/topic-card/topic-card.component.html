@@ -1,0 +1,99 @@
+<div class="gamicard">
+  <swal
+    #SwalPracticeModes
+    customClass="swal__practicemodemodal"
+    [showConfirmButton]="false"
+    [showCancelButton]="false"
+  >
+    <app-topic-practice-modal
+      *swalPortal="undefined"
+      (onCloseModal)="handleCloseModal()"
+    ></app-topic-practice-modal>
+  </swal>
+
+  <swal
+    #SwalShareTopic
+    customClass="swal__sharetopicmodal"
+    [showConfirmButton]="false"
+    [showConfirmButton]="false"
+  >
+    <app-topic-shared-modal
+      *swalPortal="undefined"
+      [topic]="topic"
+      (onCloseModal)="handleCloseSharedModal()"
+    ></app-topic-shared-modal>
+  </swal>
+
+  <ng-template #tooltipdropdown>
+    <app-topic-dropdown [topic]="topic"></app-topic-dropdown>
+  </ng-template>
+
+  <app-card>
+    <card-body>
+      <div class="gamicard__body">
+        <div class="gamicard__body__title">
+          <app-text
+            [text]="topic.title | titlecase"
+            [classname]="'text-xl'"
+          ></app-text>
+          <div class="gamicard__body__title__icon">
+            <app-icon
+              [componentTooltip]="tooltipdropdown"
+              [identifier]="'three-dots-vertical'"
+            ></app-icon>
+          </div>
+        </div>
+        <app-text
+          [text]="cardMemorizedText"
+          [classname]="'text-sm'"
+          [color]="'darkgray'"
+        ></app-text>
+      </div>
+    </card-body>
+
+    <card-footer>
+      <div class="gamicard__footer">
+        <div class="gamicard__footer__actions">
+          <app-button [variation]="'secondary'" *ngIf="isEmptyTopic">
+            <button-content>
+              <a
+                class="gamicard__footer__link"
+                [routerLink]="notesURL"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                >Revisar</a
+              >
+            </button-content>
+          </app-button>
+
+          <app-button
+            [icon]="'plus'"
+            [variation]="'primary'"
+            *ngIf="!isEmptyTopic"
+          >
+            <button-content>
+              <a
+                class="gamicard__footer__link"
+                [routerLink]="notesURL"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                >Añadir Tarjetas</a
+              >
+            </button-content>
+          </app-button>
+          <app-button (onClick)="handleShowModal()" [variation]="'secondary'">
+            <button-content>Practicar </button-content>
+          </app-button>
+        </div>
+
+        <div class="gamicard__footer__icons">
+          <app-icon
+            [tooltip]="'Share these notes by url!'"
+            [identifier]="'share'"
+            (onClick)="handleShowSharedModal()"
+          ></app-icon>
+        </div>
+      </div>
+    </card-footer>
+  </app-card>
+</div>

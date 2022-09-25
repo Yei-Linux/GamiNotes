@@ -1,0 +1,20 @@
+<app-wrapper>
+  <wrapper-header>
+    <app-topic-page-header></app-topic-page-header>
+  </wrapper-header>
+
+  <wrapper-content>
+    <app-topic-card
+      *ngFor="let topic of topics"
+      [topic]="topic"
+    ></app-topic-card>
+  </wrapper-content>
+
+  <wrapper-footer>
+    <app-button [icon]="'plus'" [variation]="'primary'">
+      <button-content>
+        <a [routerLink]="newTopicUrl"> Crear Conjunto </a>
+      </button-content>
+    </app-button>
+  </wrapper-footer>
+</app-wrapper>

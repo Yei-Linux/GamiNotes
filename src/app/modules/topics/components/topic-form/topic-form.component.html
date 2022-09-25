@@ -1,0 +1,35 @@
+<div class="gamiform">
+  <form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <app-form-field [labelFor]="'title_topic_form'" [labelText]="'Title'">
+      <form-field-input>
+        <input
+          class="gamiform__input"
+          type="text"
+          placeholder="Type title..."
+          formControlName="title_topic_form"
+        />
+      </form-field-input>
+    </app-form-field>
+
+    <app-form-field
+      [labelFor]="'description_topic_form'"
+      [labelText]="'Description(Optional)'"
+    >
+      <form-field-input>
+        <textarea
+          class="gamiform__input"
+          formControlName="description_topic_form"
+          placeholder="Type description..."
+          id=""
+          cols="30"
+          rows="10"
+        ></textarea>
+      </form-field-input>
+    </app-form-field>
+    <div>
+      <app-button [type]="'submit'" [icon]="buttonIcon" [variation]="'primary'">
+        <button-content> {{ buttonText }} </button-content>
+      </app-button>
+    </div>
+  </form>
+</div>

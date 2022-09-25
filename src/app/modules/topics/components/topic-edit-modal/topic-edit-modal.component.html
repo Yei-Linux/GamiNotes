@@ -1,0 +1,24 @@
+<div class="modal">
+  <div class="modal__header">
+    <div class="modal__header__title">
+      <app-text
+        classname="text-lg font-bold"
+        [text]="'Edit'"
+        [color]="'black'"
+      ></app-text>
+    </div>
+    <div class="modal__header__actions"></div>
+
+    <div class="modal__header__close" (click)="handleCloseModal()">
+      <app-icon [identifier]="'x-lg'"></app-icon>
+    </div>
+  </div>
+
+  <div class="modal__body">
+    <app-topic-form
+      [isEditMode]="isEditMode"
+      [topic]="topic"
+      (onSubmit)="onSubmit($event)"
+    ></app-topic-form>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+@import "../../../styles/base/tokens.scss";
+
+.buttonui {
+  @apply font-semibold py-1 px-2 rounded-full;
+
+  &--primary {
+    background-color: $bg_primary;
+    color: $bg_white;
+  }
+
+  &--secondary {
+    background-color: $bg_white;
+    color: $bg_primary;
+    border: 1px solid $bg_primary;
+  }
+
+  &__icon {
+    display: inline-block;
+    &--before {
+      margin-left: 5px;
+    }
+    &--after {
+      margin-right: 5px;
+    }
+  }
+}

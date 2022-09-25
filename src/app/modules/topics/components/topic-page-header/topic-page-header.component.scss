@@ -1,0 +1,11 @@
+.topicpageheader {
+  @apply p-3 w-full;
+
+  &__title {
+    @apply mb-3;
+  }
+
+  &__actions {
+    @apply flex gap-3;
+  }
+}

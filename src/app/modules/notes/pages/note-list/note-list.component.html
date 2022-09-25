@@ -1,0 +1,61 @@
+<swal
+  #SwalNotePracticeModes
+  customClass="swal__notepracticemodemodal"
+  [showConfirmButton]="false"
+  [showCancelButton]="false"
+>
+  <app-topic-practice-modal
+    *swalPortal="undefined"
+    (onCloseModal)="handleCloseModal()"
+  ></app-topic-practice-modal>
+</swal>
+
+<app-wrapper *ngIf="topicWithNotes$ | async; let topicWithNotes">
+  <wrapper-header>
+    <app-tag [background]="'#54bab9'" [color]="'white'" [weigth]="'bold'">
+      <tag-content>
+        {{ "Total: " + $any(topicWithNotes).total_notes | titlecase }}
+      </tag-content>
+    </app-tag>
+
+    <app-tag [background]="'white'" [color]="'#54bab9'" [border]="'#54bab9'">
+      <tag-content>
+        No memorizadas:
+        {{
+          $any(topicWithNotes).total_notes -
+            $any(topicWithNotes).total_memorized
+        }}
+      </tag-content>
+    </app-tag>
+
+    <app-tag [background]="'white'" [color]="'#54bab9'" [border]="'#54bab9'">
+      <tag-content>
+        {{
+          "Memorizadas: " + $any(topicWithNotes).total_memorized | titlecase
+        }}</tag-content
+      >
+    </app-tag>
+  </wrapper-header>
+
+  <wrapper-content>
+    <app-note-card
+      *ngFor="let note of $any(topicWithNotes).notes"
+      [note]="note"
+    ></app-note-card>
+  </wrapper-content>
+
+  <wrapper-footer>
+    <app-button
+      (onClick)="handleShowModal()"
+      [icon]="'plus'"
+      [variation]="'primary'"
+    >
+      <button-content> Practicar </button-content>
+    </app-button>
+    <app-button [icon]="'plus'" [variation]="'primary'">
+      <button-content>
+        <a routerLink="add"> Añadir Tarjetas </a>
+      </button-content>
+    </app-button>
+  </wrapper-footer>
+</app-wrapper>

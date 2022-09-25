@@ -1,39 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NoteFormComponent } from './components/features/note-form/note-form.component';
-import { NotesDetailComponent } from './components/features/notes-detail/notes-detail.component';
-import { NotesHomeComponent } from './components/features/notes-home/notes-home.component';
-import { PublicSharedTopicComponent } from './components/features/public-shared-topic/public-shared-topic.component';
-import { TopicFormComponent } from './components/features/topic-form/topic-form.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: NotesHomeComponent,
+    path: 'account',
+    loadChildren: () =>
+      import('./modules/account/account.module').then((m) => m.AccountModule),
   },
   {
-    path: 'topic/edit/:id',
-    component: TopicFormComponent,
+    path: 'login',
+    loadChildren: () =>
+      import('./modules/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'topic/add',
-    component: TopicFormComponent,
+    path: 'topics',
+    loadChildren: () =>
+      import('./modules/topics/topics.module').then((m) => m.TopicsModule),
   },
   {
-    path: 'topic/:id/notes',
-    component: NotesDetailComponent,
+    path: 'topics/:id/notes',
+    loadChildren: () =>
+      import('./modules/notes/notes.module').then((m) => m.NotesModule),
   },
   {
-    path: 'topic/:id/notes/edit/:cardid',
-    component: NoteFormComponent,
-  },
-  {
-    path: 'topic/:id/notes/add',
-    component: NoteFormComponent,
-  },
-  {
-    path: 'public/topic/shared/:id/notes',
-    component: PublicSharedTopicComponent,
+    path: 'public',
+    loadChildren: () =>
+      import('./modules/public/public.module').then((m) => m.PublicModule),
   },
 ];
 
