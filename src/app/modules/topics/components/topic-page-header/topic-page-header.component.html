@@ -1,18 +1,28 @@
 <div class="topicpageheader">
   <div class="topicpageheader__title">
     <app-text
-      [text]="'Mis Notas'"
+      [text]="'My Topics'"
       [classname]="'text-xl font-bold'"
       [color]="'black'"
     ></app-text>
+
+    <app-search></app-search>
   </div>
 
   <div class="topicpageheader__actions">
-    <app-button [variation]="'secondary'">
-      <button-content> Revisar Todas</button-content>
-    </app-button>
-    <app-button [variation]="'secondary'">
-      <button-content> Practicar Todas </button-content>
-    </app-button>
+    <app-list-item
+      background="#f3f3f3"
+      icon="bell"
+      type="icon"
+      background="white"
+      padding="8px"
+    ></app-list-item>
+    <app-list-item
+      background="#f3f3f3"
+      icon="person-circle"
+      type="icon"
+      background="white"
+      padding="8px"
+    ></app-list-item>
   </div>
 </div>

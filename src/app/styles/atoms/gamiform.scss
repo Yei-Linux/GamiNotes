@@ -1,7 +1,14 @@
 .gamiform {
   @apply p-4;
   &__input {
-    @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+    @apply appearance-none w-full py-2 px-3 text-gray-700 leading-tight border-none;
     outline: none;
+
+    &--border {
+      @apply border rounded;
+    }
+    &--shadow {
+      @apply shadow;
+    }
   }
 }

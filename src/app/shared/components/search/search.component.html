@@ -1,0 +1,18 @@
+<div class="gamiform search">
+  <form
+    class="gamiform search_form"
+    [formGroup]="form"
+    (ngSubmit)="handleSubmit()"
+  >
+    <app-form-field [labelFor]="'topic_search_form'">
+      <form-field-input>
+        <input
+          class="gamiform__input"
+          type="text"
+          placeholder="Search topic you want..."
+          formControlName="topic_search_form"
+        />
+      </form-field-input> </app-form-field
+    ><app-icon [identifier]="'search'"></app-icon>
+  </form>
+</div>

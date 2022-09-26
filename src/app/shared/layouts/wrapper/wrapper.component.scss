@@ -1,35 +1,54 @@
-.noteswrapper {
-  @apply relative;
+.wrapper {
+  display: grid;
+  grid-template:
+    "header" 10%
+    "content" 80%
+    "footer" 10%;
 
   height: 100vh;
 
   &__header {
+    @apply flex items-center;
+
     &::ng-deep {
-      notes-header {
+      wrapper-header {
+        grid-area: header;
+
         @apply flex gap-2 w-full;
       }
     }
   }
 
   &__content {
+    background-color: #f5f2ff;
+    display: flex;
+    align-items: center;
+
     &::ng-deep {
-      notes-content {
+      wrapper-content {
+        width: 100%;
+        grid-area: content;
         @apply p-3;
 
         display: grid;
+        grid-auto-rows: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(370px, 380px));
         grid-gap: 1rem;
-
-        background-color: #f9fbf4;
+        justify-content: center;
+        margin: auto;
       }
     }
   }
 
   &__footer {
+    @apply flex items-center;
+
     &::ng-deep {
-      notes-footer {
+      wrapper-footer {
+        grid-area: footer;
         bottom: 0px;
 
-        @apply fixed w-full flex gap-2 justify-center p-6;
+        @apply w-full flex gap-2 justify-center p-6;
       }
     }
   }

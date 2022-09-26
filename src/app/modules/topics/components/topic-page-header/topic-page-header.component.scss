@@ -1,11 +1,17 @@
-.topicpageheader {
-  @apply p-3 w-full;
+::ng-deep {
+  app-topic-page-header {
+    @apply w-full;
 
-  &__title {
-    @apply mb-3;
-  }
+    .topicpageheader {
+      @apply flex justify-between p-3 w-full;
 
-  &__actions {
-    @apply flex gap-3;
+      &__title {
+        @apply flex items-center mb-3 gap-3;
+      }
+
+      &__actions {
+        @apply flex gap-3;
+      }
+    }
   }
 }

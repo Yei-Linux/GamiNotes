@@ -4,14 +4,13 @@
   @apply font-semibold py-1 px-2 rounded-full;
 
   &--primary {
-    background-color: $bg_primary;
-    color: $bg_white;
+    @apply bg-gami-primary text-white;
   }
 
   &--secondary {
-    background-color: $bg_white;
-    color: $bg_primary;
-    border: 1px solid $bg_primary;
+    @apply bg-white  border-gami-primary text-gami-primary;
+    border-width: 1px;
+    border-style: solid;
   }
 
   &__icon {

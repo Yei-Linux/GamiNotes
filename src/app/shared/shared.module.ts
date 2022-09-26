@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
@@ -13,9 +13,8 @@ import { CustomTooltipComponent } from './components/custom-tooltip/custom-toolt
 import { CustomTooltipDirective } from './directives/custom-tooltip.directive';
 import { TooltipDirective } from './directives/tooltip.directive';
 import { WrapperComponent } from './layouts/wrapper/wrapper.component';
-import { GlobalStateService } from './services/global-state.service';
-import { TopicsService } from './services/topics.service';
 import { RouterModule } from '@angular/router';
+import { SearchComponent } from './components/search/search.component';
 
 const schema = [
   //UI Components
@@ -28,6 +27,7 @@ const schema = [
   TextComponent,
   TooltipComponent,
   CustomTooltipComponent,
+  SearchComponent,
 
   //Reused Components
   TopicPracModal,
@@ -44,5 +44,6 @@ const schema = [
   declarations: schema,
   imports: [CommonModule, RouterModule],
   exports: schema,
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class SharedModule {}
