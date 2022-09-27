@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, Observable, shareReplay } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
@@ -10,6 +10,7 @@ import { CreateTopicRequest } from 'src/app/core/models/topics/CreateTopicReques
 import { Topic } from 'src/app/core/models/topics/Topic.model';
 import { TopicWithNotesRequest } from 'src/app/core/models/topics/TopicWithNotesRequest.model';
 import { Response } from 'src/app/core/models/generic/Response.model';
+import { TopicFilters } from 'src/app/core/models/topics/TopicFilters.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,9 +18,16 @@ import { Response } from 'src/app/core/models/generic/Response.model';
 export class TopicsService {
   constructor(private http: HttpClient) {}
 
-  findAllTopics(): Observable<Topic[] | null> {
+  findAllTopics(filters: TopicFilters): Observable<Topic[] | null> {
+    const params = new HttpParams()
+      .set('page', filters.page)
+      .set('size', filters.size)
+      .set('search', filters.search);
+
     return this.http
-      .get<Response<Topic[]>>(environment.api.topics.findAll)
+      .get<Response<Topic[]>>(environment.api.topics.findAll, {
+        params,
+      })
       .pipe(
         map((response) => response.data),
         shareReplay()
