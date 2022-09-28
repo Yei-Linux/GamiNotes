@@ -44,11 +44,11 @@ export class TopicListComponent implements OnInit {
     });
     this.globalState.topicFilters$.subscribe((topicFilters) => {
       this.topicFilters = topicFilters;
+      this.fetchAllTopics();
     });
   }
 
   ngOnInit(): void {
     this.suscribers();
-    this.fetchAllTopics();
   }
 }

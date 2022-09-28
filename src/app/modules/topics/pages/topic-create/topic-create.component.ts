@@ -16,6 +16,7 @@ import { TopicsService } from 'src/app/shared/services/topics.service';
 export class TopicCreateComponent implements OnInit {
   user: User | null = null;
   topic: Topic = new Topic();
+  hasSearchSection = false;
 
   constructor(
     private topicService: TopicsService,

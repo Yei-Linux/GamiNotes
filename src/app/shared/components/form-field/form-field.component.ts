@@ -10,6 +10,8 @@ export class FormFieldComponent implements OnInit {
   labelFor?: string;
   @Input()
   labelText?: string;
+  @Input()
+  class?: string;
 
   constructor() {}
 

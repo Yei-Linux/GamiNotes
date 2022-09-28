@@ -1,9 +1,13 @@
 <div class="gamiform">
   <form [formGroup]="form" (ngSubmit)="handleSubmit()">
-    <app-form-field [labelFor]="'title_topic_form'" [labelText]="'Title'">
+    <app-form-field
+      class="pb-4"
+      [labelFor]="'title_topic_form'"
+      [labelText]="'Title:'"
+    >
       <form-field-input>
         <input
-          class="gamiform__input"
+          class="gamiform__input gamiform__input--border gamiform__input--shadow"
           type="text"
           placeholder="Type title..."
           formControlName="title_topic_form"
@@ -12,8 +16,9 @@
     </app-form-field>
 
     <app-form-field
+      class="pb-4"
       [labelFor]="'description_topic_form'"
-      [labelText]="'Description(Optional)'"
+      [labelText]="'Description(Optional):'"
     >
       <form-field-input>
         <textarea

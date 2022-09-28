@@ -21,6 +21,10 @@ export class TopicShareModalComponent implements OnInit {
 
   constructor(private sharedTopicService: SharedTopicService) {}
 
+  get variation() {
+    return this.sharedTopic ? 'primary' : 'secondary';
+  }
+
   get sharedTitle() {
     return this.sharedTopic
       ? `You have created one shared url in ${this.sharedTopic.create_at}, check this:`

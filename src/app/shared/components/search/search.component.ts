@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
 
@@ -9,17 +9,26 @@ import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
 })
 export class SearchComponent implements OnInit {
   topic_search_form: string = '';
-  constructor(private fb: FormBuilder) {}
+
+  @Output()
+  onChange = new EventEmitter();
 
   public form: FormGroup = this.fb.group({
-    topic_search_form: [this.topic_search_form],
+    topic_search_form: [
+      this.topic_search_form,
+      {
+        validator: [],
+      },
+    ],
   });
+
+  constructor(private fb: FormBuilder) {}
 
   handleChangeSearch() {
     this.form.valueChanges
       .pipe(debounceTime(500), distinctUntilChanged())
       .subscribe((value) => {
-        console.log(value);
+        this.onChange.emit(value.topic_search_form);
       });
   }
 

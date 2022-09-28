@@ -15,6 +15,7 @@ import { TooltipDirective } from './directives/tooltip.directive';
 import { WrapperComponent } from './layouts/wrapper/wrapper.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './components/search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const schema = [
   //UI Components
@@ -42,7 +43,7 @@ const schema = [
 
 @NgModule({
   declarations: schema,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
   exports: schema,
   schemas: [NO_ERRORS_SCHEMA],
 })

@@ -1,5 +1,15 @@
-<app-topic-form
-  [isEditMode]="isEditMode"
-  [topic]="topic"
-  (onSubmit)="onSubmit($event)"
-></app-topic-form>
+<app-wrapper>
+  <wrapper-header>
+    <app-topic-page-header
+      [hasSearchSection]="hasSearchSection"
+    ></app-topic-page-header>
+  </wrapper-header>
+
+  <wrapper-content>
+    <app-topic-form
+      [isEditMode]="isEditMode"
+      [topic]="topic"
+      (onSubmit)="onSubmit($event)"
+    ></app-topic-form>
+  </wrapper-content>
+</app-wrapper>

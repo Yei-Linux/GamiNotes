@@ -1,13 +1,15 @@
 <app-wrapper>
   <wrapper-header>
-    <app-topic-page-header></app-topic-page-header>
+    <app-topic-page-header title="My Topics"></app-topic-page-header>
   </wrapper-header>
 
   <wrapper-content>
-    <app-topic-card
-      *ngFor="let topic of topics"
-      [topic]="topic"
-    ></app-topic-card>
+    <div class="topiclist__content">
+      <app-topic-card
+        *ngFor="let topic of topics"
+        [topic]="topic"
+      ></app-topic-card>
+    </div>
   </wrapper-content>
 
   <wrapper-footer>

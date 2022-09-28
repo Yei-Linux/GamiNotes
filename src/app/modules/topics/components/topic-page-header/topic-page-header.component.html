@@ -1,12 +1,15 @@
 <div class="topicpageheader">
   <div class="topicpageheader__title">
     <app-text
-      [text]="'My Topics'"
+      text="GamiNotes"
       [classname]="'text-xl font-bold'"
       [color]="'black'"
     ></app-text>
 
-    <app-search></app-search>
+    <app-search
+      *ngIf="hasSearchSection"
+      (onChange)="handleSearch($event)"
+    ></app-search>
   </div>
 
   <div class="topicpageheader__actions">
