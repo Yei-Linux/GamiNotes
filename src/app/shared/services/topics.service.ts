@@ -11,6 +11,7 @@ import { Topic } from 'src/app/core/models/topics/Topic.model';
 import { TopicWithNotesRequest } from 'src/app/core/models/topics/TopicWithNotesRequest.model';
 import { Response } from 'src/app/core/models/generic/Response.model';
 import { TopicFilters } from 'src/app/core/models/topics/TopicFilters.model';
+import { NoteFilters } from 'src/app/core/models/notes/NoteFilters.model';
 
 @Injectable({
   providedIn: 'root',
@@ -35,13 +36,20 @@ export class TopicsService {
   }
 
   findTopicWithNotes(
-    request: TopicWithNotesRequest,
+    filters: NoteFilters,
     topicId: string
   ): Observable<TopicWithNotesResponse | null> {
+    const params = new HttpParams()
+      .set('page', filters.page)
+      .set('size', filters.size)
+      .set('search', filters.search);
+
     return this.http
-      .post<Response<TopicWithNotesResponse>>(
+      .get<Response<TopicWithNotesResponse>>(
         environment.api.topics.findTopicWithNotes.replaceParamsInUrl(topicId),
-        request
+        {
+          params,
+        }
       )
       .pipe(
         map((response) => response.data),

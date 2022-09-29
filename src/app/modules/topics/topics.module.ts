@@ -8,7 +8,6 @@ import { TopicCardComponent } from './components/topic-card/topic-card.component
 import { TopicDropdownComponent } from './components/topic-dropdown/topic-dropdown.component';
 import { TopicEditModalComponent } from './components/topic-edit-modal/topic-edit-modal.component';
 import { TopicFormComponent } from './components/topic-form/topic-form.component';
-import { TopicPageHeaderComponent } from './components/topic-page-header/topic-page-header.component';
 import { TopicShareModalComponent } from './components/topic-shared-modal/topic-shared-modal.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,7 +23,6 @@ const schema = [
   TopicDropdownComponent,
   TopicEditModalComponent,
   TopicFormComponent,
-  TopicPageHeaderComponent,
   TopicShareModalComponent,
 ];
 

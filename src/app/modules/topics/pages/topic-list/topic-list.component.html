@@ -1,10 +1,17 @@
 <app-wrapper>
   <wrapper-header>
-    <app-topic-page-header title="My Topics"></app-topic-page-header>
+    <app-header>
+      <header-content>
+        <app-search
+          placeholder="Search topic you want..."
+          (onChange)="handleSearch($event)"
+        ></app-search>
+      </header-content>
+    </app-header>
   </wrapper-header>
 
   <wrapper-content>
-    <div class="topiclist__content">
+    <div class="grid__cuadric">
       <app-topic-card
         *ngFor="let topic of topics"
         [topic]="topic"

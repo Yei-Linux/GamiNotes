@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
 
@@ -8,10 +8,12 @@ import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  topic_search_form: string = '';
-
+  @Input()
+  placeholder: string = '';
   @Output()
   onChange = new EventEmitter();
+
+  topic_search_form: string = '';
 
   public form: FormGroup = this.fb.group({
     topic_search_form: [

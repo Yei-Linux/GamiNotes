@@ -1,18 +1,17 @@
-<div class="topicpageheader">
-  <div class="topicpageheader__title">
-    <app-text
-      text="GamiNotes"
-      [classname]="'text-xl font-bold'"
-      [color]="'black'"
-    ></app-text>
+<div class="header">
+  <div class="header__title">
+    
+    <a [routerLink]="homeUrl"> 
+      <app-text
+        text="GamiNotes"
+        [classname]="'text-xl font-bold'"
+        [color]="'black'"
+      ></app-text></a>
 
-    <app-search
-      *ngIf="hasSearchSection"
-      (onChange)="handleSearch($event)"
-    ></app-search>
+    <ng-content select="header-content"></ng-content>
   </div>
 
-  <div class="topicpageheader__actions">
+  <div class="header__actions">
     <app-list-item
       background="#f3f3f3"
       icon="bell"

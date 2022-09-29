@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { NoteFilters } from 'src/app/core/models/notes/NoteFilters.model';
 import { Topic } from 'src/app/core/models/topics/Topic.model';
 import { TopicFilters } from 'src/app/core/models/topics/TopicFilters.model';
 import { User } from '../../core/models/login/User.model';
@@ -10,6 +11,9 @@ import { User } from '../../core/models/login/User.model';
 export class GlobalStateService {
   private topicFilters = new BehaviorSubject<TopicFilters>(
     new TopicFilters(0, 15, '')
+  );
+  private noteFilters = new BehaviorSubject<NoteFilters>(
+    new NoteFilters(0, 15, '')
   );
   private user = new BehaviorSubject<User>(
     new User('631cda65e254720368a68d40', '', '')
@@ -30,6 +34,10 @@ export class GlobalStateService {
     return this.topicFilters.asObservable();
   }
 
+  get noteFilters$() {
+    return this.noteFilters.asObservable();
+  }
+
   setTopic(topics: Topic[]) {
     this.topics.next(topics);
   }
@@ -40,5 +48,9 @@ export class GlobalStateService {
 
   setTopicFilters({ search = '', page }: { search: string; page: number }) {
     this.topicFilters.next(new TopicFilters(page, 15, search));
+  }
+
+  setNoteFilters({ search = '', page }: { search: string; page: number }) {
+    this.noteFilters.next(new NoteFilters(page, 15, search));
   }
 }

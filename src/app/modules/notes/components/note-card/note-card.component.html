@@ -8,11 +8,14 @@
       <a [routerLink]="goToNoteForm()">
         <div class="gamicard__body">
           <div class="gamicard__body__title">
-            <app-text [text]="note.title" [classname]="'text-xl'"></app-text>
+            <app-text
+              [text]="note.title"
+              [classname]="'text-xl  text--overflow'"
+            ></app-text>
           </div>
           <app-text
             [text]="note.description"
-            [classname]="'text-sm'"
+            [classname]="'text-sm text--overflow'"
             [color]="'darkgray'"
           ></app-text>
         </div>

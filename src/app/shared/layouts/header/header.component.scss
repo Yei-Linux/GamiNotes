@@ -1,8 +1,8 @@
 ::ng-deep {
-  app-topic-page-header {
+  app-header {
     @apply w-full;
 
-    .topicpageheader {
+    .header {
       @apply flex justify-between p-3 w-full;
 
       &__title {

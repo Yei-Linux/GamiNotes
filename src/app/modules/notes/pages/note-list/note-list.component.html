@@ -10,38 +10,28 @@
   ></app-topic-practice-modal>
 </swal>
 
-<app-wrapper *ngIf="topicWithNotes$ | async; let topicWithNotes">
+<app-wrapper>
   <wrapper-header>
-    <app-tag [background]="'#54bab9'" [color]="'white'" [weigth]="'bold'">
-      <tag-content>
-        {{ "Total: " + $any(topicWithNotes).total_notes | titlecase }}
-      </tag-content>
-    </app-tag>
-
-    <app-tag [background]="'white'" [color]="'#54bab9'" [border]="'#54bab9'">
-      <tag-content>
-        No memorizadas:
-        {{
-          $any(topicWithNotes).total_notes -
-            $any(topicWithNotes).total_memorized
-        }}
-      </tag-content>
-    </app-tag>
-
-    <app-tag [background]="'white'" [color]="'#54bab9'" [border]="'#54bab9'">
-      <tag-content>
-        {{
-          "Memorizadas: " + $any(topicWithNotes).total_memorized | titlecase
-        }}</tag-content
-      >
-    </app-tag>
+    <app-header>
+      <header-content>
+        <app-search
+          placeholder="Search notes you want..."
+          (onChange)="handleSearch($event)"
+        ></app-search>
+      </header-content>
+    </app-header>
   </wrapper-header>
 
   <wrapper-content>
-    <app-note-card
-      *ngFor="let note of $any(topicWithNotes).notes"
-      [note]="note"
-    ></app-note-card>
+    <div
+      class="grid__cuadric"
+      *ngIf="topicWithNotes$ | async; let topicWithNotes"
+    >
+      <app-note-card
+        *ngFor="let note of $any(topicWithNotes).notes"
+        [note]="note"
+      ></app-note-card>
+    </div>
   </wrapper-content>
 
   <wrapper-footer>

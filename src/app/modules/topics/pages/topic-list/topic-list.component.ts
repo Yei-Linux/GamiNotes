@@ -22,6 +22,10 @@ export class TopicListComponent implements OnInit {
     return `/topics/add`;
   }
 
+  handleSearch(searcher: string) {
+    this.globalState.setTopicFilters({ search: searcher, page: 0 });
+  }
+
   fetchAllTopics() {
     if (!this.topicFilters) throw new Error('Filters empty from global state');
 
