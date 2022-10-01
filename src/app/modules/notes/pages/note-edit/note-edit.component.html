@@ -1,5 +1,15 @@
-<app-note-form
-  [isEditMode]="isEditMode"
-  [note]="note"
-  (onSubmit)="onSubmit($event)"
-></app-note-form>
+<app-wrapper variation="nofooter">
+  <wrapper-header>
+    <app-header>
+      <header-content> </header-content>
+    </app-header>
+  </wrapper-header>
+
+  <wrapper-content>
+    <app-note-form
+      [isEditMode]="isEditMode"
+      [note]="note"
+      (onSubmit)="onSubmit($event)"
+    ></app-note-form>
+  </wrapper-content>
+</app-wrapper>

@@ -7,6 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class IconComponent implements OnInit {
   @Input()
+  variation?: string = 'black';
+  @Input()
   identifier: string = 'github';
   @Output()
   onClick: EventEmitter<any> = new EventEmitter<any>();

@@ -12,10 +12,12 @@ const routes: Routes = [
   {
     path: 'add',
     component: NoteCreateComponent,
+    data: { breadcrumb: 'Create Note' },
   },
   {
     path: 'edit/:noteId',
     component: NoteEditComponent,
+    data: { breadcrumb: 'Edit Note' },
   },
 ];
 

@@ -1,0 +1,16 @@
+@function split-str($str, $separator, $arr: []) {
+  $index: str-index($str, $separator);
+  $start: $start, 1;
+  $end: $separator + 1;
+
+  $item: str-slice($str, $start: $start, $end: $end);
+  $rest: str-slice($str, $start: $end);
+
+  $arr_acc: append($arr, $item);
+
+  @if str-length($rest) == 0 {
+    @return $arr_acc;
+  } @else {
+    @return split-str($rest, $separator, $arr_acc);
+  }
+}

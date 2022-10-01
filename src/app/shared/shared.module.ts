@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { SearchComponent } from './components/search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './layouts/header/header.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 const schema = [
   //UI Components
@@ -30,6 +31,7 @@ const schema = [
   TooltipComponent,
   CustomTooltipComponent,
   SearchComponent,
+  BreadcrumbComponent,
 
   //Reused Components
   TopicPracModal,

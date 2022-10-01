@@ -1,0 +1,26 @@
+.breadcrumb {
+  @apply inline-flex items-center space-x-1 md:space-x-3;
+  &__item {
+    @apply inline-flex items-center;
+
+    &__chevron {
+      margin-left: 0.8rem;
+    }
+
+    &__link {
+      color: #8a8cff;
+      @apply inline-flex items-center text-base;
+
+      font-weight: 500;
+      padding-bottom: 0.2px;
+      border-bottom: 1px solid #b3b5fd;
+    }
+
+    &:last-child {
+      a {
+        border-bottom: 1px solid transparent;
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -2,4 +2,10 @@
   &:hover {
     cursor: pointer;
   }
+
+  &--secondary {
+    &::before {
+      color: #8a8cff;
+    }
+  }
 }

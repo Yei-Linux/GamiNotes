@@ -1,13 +1,7 @@
-.wrapper {
-  display: grid;
-  grid-template:
-    "header" 10%
-    "content" 80%
-    "footer" 10%;
+@use "sass:map";
 
-  height: 100vh;
-
-  &__header {
+%header {
+  .wrapper__header {
     @apply flex items-center;
 
     &::ng-deep {
@@ -18,11 +12,13 @@
       }
     }
   }
+}
 
-  &__content {
+%content {
+  .wrapper__body {
     background-color: #f5f2ff;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 10% 90%;
 
     &::ng-deep {
       wrapper-content {
@@ -32,8 +28,14 @@
       }
     }
   }
+  .wrapper__content {
+    display: flex;
+    align-items: center;
+  }
+}
 
-  &__footer {
+%footer {
+  .wrapper__footer {
     @apply flex items-center;
 
     &::ng-deep {
@@ -44,5 +46,60 @@
         @apply w-full flex gap-2 justify-center p-6;
       }
     }
+  }
+}
+
+@mixin wrapper-base($header, $content, $footer) {
+  grid-template: $header $content $footer;
+}
+
+@mixin wrapper-sections($header, $content, $footer) {
+  @if (nth($header, 2) != 0%) {
+    @extend %header;
+  }
+  @if (nth($content, 2) != 0%) {
+    @extend %content;
+  }
+  @if (nth($footer, 2) != 0%) {
+    @extend %footer;
+  }
+}
+
+$variations: (
+  "general": (
+    "header": "header" 10%,
+    "content": "content" 80%,
+    "footer": "footer" 10%,
+  ),
+  "noheader": (
+    "header": "header" 0%,
+    "content": "content" 90%,
+    "footer": "footer" 10%,
+  ),
+  "nofooter": (
+    "header": "header" 10%,
+    "content": "content" 90%,
+    "footer": "footer" 0%,
+  ),
+);
+
+.wrapper {
+  display: grid;
+  height: 100vh;
+
+  @each $key, $value in $variations {
+    $header_list: map.get($value, "header");
+    $content_list: map.get($value, "content");
+    $footer_list: map.get($value, "footer");
+
+    &--#{$key} {
+      @include wrapper-base($header_list, $content_list, $footer_list);
+    }
+
+    @include wrapper-sections($header_list, $content_list, $footer_list);
+  }
+
+  &__breadcrumb {
+    @apply w-full flex items-center p-4;
   }
 }

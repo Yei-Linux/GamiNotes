@@ -1,0 +1,14 @@
+<ul class="breadcrumb">
+  <li
+    class="breadcrumb__item"
+    *ngFor="let breadcrumb of breadcrumbs; let last = last"
+  >
+    <a class="breadcrumb__item__link" [routerLink]="breadcrumb.url">{{
+      breadcrumb.label
+    }}</a>
+
+    <span class="breadcrumb__item__chevron" *ngIf="!last">
+      <app-icon identifier="chevron-right" variation="secondary"></app-icon>
+    </span>
+  </li>
+</ul>

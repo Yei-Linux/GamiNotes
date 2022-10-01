@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: 'add',
     component: TopicCreateComponent,
+    data: { breadcrumb: 'Create' },
   },
 ];
 
