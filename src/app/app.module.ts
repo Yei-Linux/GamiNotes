@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 
 import './shared/helpers/prototypes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import './shared/helpers/prototypes';
     //Lib Modules
     HttpClientModule,
     BrowserModule,
+    RouterModule,
   ],
   bootstrap: [AppComponent],
   providers: [GlobalStateService],

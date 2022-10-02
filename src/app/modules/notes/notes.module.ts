@@ -8,16 +8,17 @@ import { NoteListComponent } from './pages/note-list/note-list.component';
 import { NoteCardComponent } from './components/note-card/note-card.component';
 import { NoteDropdownComponent } from './components/note-dropdown/note-dropdown.component';
 import { NoteFormComponent } from './components/note-form/note-form.component';
-import { NotesService } from './services/notes.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NotesMainComponent } from './pages/notes-main/notes-main.component';
 
 const schema = [
   //Pages
   NoteCreateComponent,
   NoteEditComponent,
   NoteListComponent,
+  NotesMainComponent,
 
   //Components
   NoteCardComponent,

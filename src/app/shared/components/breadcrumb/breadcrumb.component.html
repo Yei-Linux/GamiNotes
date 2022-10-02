@@ -1,7 +1,10 @@
 <ul class="breadcrumb">
+  <span class="breadcrumb__preffix">
+    <app-icon identifier="house-heart" variation="secondary"></app-icon>
+  </span>
   <li
     class="breadcrumb__item"
-    *ngFor="let breadcrumb of breadcrumbs; let last = last"
+    *ngFor="let breadcrumb of breadcrumbs; let first = first; let last = last"
   >
     <a class="breadcrumb__item__link" [routerLink]="breadcrumb.url">{{
       breadcrumb.label

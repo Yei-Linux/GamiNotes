@@ -12,9 +12,11 @@ import { TopicShareModalComponent } from './components/topic-shared-modal/topic-
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { TopicsMainComponent } from './pages/topics-main/topics-main.component';
 
 const schema = [
   //Pages
+  TopicsMainComponent,
   TopicCreateComponent,
   TopicListComponent,
 
