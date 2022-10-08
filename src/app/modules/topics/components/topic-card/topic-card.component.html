@@ -93,8 +93,11 @@
             (onClick)="handleShowSharedModal()"
           ></app-icon>
           <app-icon
-            [tooltip]="'Mark as favorite'"
-            [identifier]="'heart'"
+            debounce
+            (debounceClick)="handleMarkAsFavorite()"
+            className="topic__card__hearticon"
+            [tooltip]="tooltipLikeText"
+            [identifier]="isLike"
           ></app-icon>
         </div>
       </div>

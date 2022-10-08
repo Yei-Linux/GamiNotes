@@ -33,6 +33,8 @@
 
         <div class="gamicard__footer__icons">
           <app-icon
+            debounce
+            (debounceClick)="handleMarkAsFavorite()"
             [tooltip]="'Mark as favorite'"
             [identifier]="'heart'"
           ></app-icon>

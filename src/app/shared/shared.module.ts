@@ -18,6 +18,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './layouts/header/header.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { DebounceDirective } from './directives/debounce.directive';
 
 const schema = [
   //UI Components
@@ -39,6 +40,7 @@ const schema = [
   //Directives
   TooltipDirective,
   CustomTooltipDirective,
+  DebounceDirective,
 
   //Layouts
   WrapperComponent,

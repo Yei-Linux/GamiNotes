@@ -1,4 +1,14 @@
 .iconiu {
+  &--hide {
+    display: none;
+  }
+
+  &--custom {
+    svg {
+      margin-top: 2px;
+    }
+  }
+
   &:hover {
     cursor: pointer;
   }

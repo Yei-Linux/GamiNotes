@@ -8,10 +8,10 @@ import { TopicWithNotesResponse } from 'src/app/core/models/topics/TopicWithNote
 import { UpdateTopicRequest } from 'src/app/core/models/topics/UpdateTopicRequest.model';
 import { CreateTopicRequest } from 'src/app/core/models/topics/CreateTopicRequest.model';
 import { Topic } from 'src/app/core/models/topics/Topic.model';
-import { TopicWithNotesRequest } from 'src/app/core/models/topics/TopicWithNotesRequest.model';
 import { Response } from 'src/app/core/models/generic/Response.model';
 import { TopicFilters } from 'src/app/core/models/topics/TopicFilters.model';
 import { NoteFilters } from 'src/app/core/models/notes/NoteFilters.model';
+import { PatchTopicRequest } from 'src/app/core/models/topics/PatchTopicRequest';
 
 @Injectable({
   providedIn: 'root',
@@ -50,6 +50,21 @@ export class TopicsService {
         {
           params,
         }
+      )
+      .pipe(
+        map((response) => response.data),
+        shareReplay()
+      );
+  }
+
+  patchTopic(
+    topic: PatchTopicRequest,
+    topicId: string
+  ): Observable<Topic | null> {
+    return this.http
+      .put<Response<Topic>>(
+        environment.api.topics.udpate.replaceParamsInUrl(topicId),
+        topic
       )
       .pipe(
         map((response) => response.data),

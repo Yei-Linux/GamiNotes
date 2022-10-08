@@ -1,6 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { PatchTopicRequest } from 'src/app/core/models/topics/PatchTopicRequest';
 import { Topic } from 'src/app/core/models/topics/Topic.model';
+import { GlobalStateService } from 'src/app/shared/services/global-state.service';
+import { TopicsService } from 'src/app/shared/services/topics.service';
 
 @Component({
   selector: 'app-topic-card',
@@ -15,7 +18,13 @@ export class TopicCardComponent implements OnInit {
   @Input()
   topic: Topic = new Topic();
 
-  constructor() {}
+  @ViewChild('btnFav', { read: ElementRef })
+  btnFav: ElementRef = new ElementRef(null);
+
+  constructor(
+    private topicService: TopicsService,
+    private globaState: GlobalStateService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -33,6 +42,14 @@ export class TopicCardComponent implements OnInit {
     return `/topics/${this.topic._id}/notes`;
   }
 
+  get isLike() {
+    return this.topic.is_liked ? 'heart-red' : 'heart';
+  }
+
+  get tooltipLikeText() {
+    return this.topic.is_liked ? 'Dislike' : 'Like';
+  }
+
   handleShowModal() {
     this.swalPracticeModes?.fire();
   }
@@ -47,5 +64,15 @@ export class TopicCardComponent implements OnInit {
 
   handleCloseSharedModal() {
     this.swalShareTopic?.close();
+  }
+
+  handleMarkAsFavorite() {
+    const likeUpdated = !this.topic.is_liked;
+    const patchTopicRequest = new PatchTopicRequest({ is_liked: likeUpdated });
+    this.topicService
+      .patchTopic(patchTopicRequest, this.topic._id)
+      .subscribe(() => {
+        this.topic.is_liked = likeUpdated;
+      });
   }
 }

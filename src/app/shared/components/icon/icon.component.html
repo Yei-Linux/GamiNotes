@@ -1,4 +1,24 @@
 <i
-  [ngClass]="'iconiu bi bi-' + identifier + ' iconiu--' + variation"
+  #bootstrapIcon
+  [ngClass]="
+    'iconiu bi bi-' +
+    identifier +
+    ' iconiu--' +
+    variation +
+    ' ' +
+    className +
+    ' ' +
+    isHideBootstrapIcon
+  "
   (click)="handleClick()"
 ></i>
+
+<i
+  #customIcon
+  [ngClass]="'iconiu iconiu--custom ' + isHideCustomIcon"
+  (click)="handleClick()"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21">
+    <use [attr.xlink:href]="'#' + identifier"></use>
+  </svg>
+</i>

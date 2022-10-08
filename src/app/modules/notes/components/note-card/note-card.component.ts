@@ -17,4 +17,6 @@ export class NoteCardComponent implements OnInit {
   goToNoteForm() {
     return `edit/${this.note._id}`;
   }
+
+  handleMarkAsFavorite() {}
 }
