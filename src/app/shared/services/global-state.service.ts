@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Note } from 'src/app/core/models/notes/Note.model';
 import { NoteFilters } from 'src/app/core/models/notes/NoteFilters.model';
 import { Topic } from 'src/app/core/models/topics/Topic.model';
 import { TopicFilters } from 'src/app/core/models/topics/TopicFilters.model';
+import { TopicWithNotesResponse } from 'src/app/core/models/topics/TopicWithNotesResponse.model';
 import { User } from '../../core/models/login/User.model';
 
 @Injectable({
@@ -19,6 +21,9 @@ export class GlobalStateService {
     new User('631cda65e254720368a68d40', '', '')
   );
   private topics = new BehaviorSubject<Topic[]>([]);
+  private topicWithNotes = new BehaviorSubject<TopicWithNotesResponse>(
+    new TopicWithNotesResponse()
+  );
 
   constructor() {}
 
@@ -28,6 +33,10 @@ export class GlobalStateService {
 
   get topics$() {
     return this.topics.asObservable();
+  }
+
+  get topicWithNotes$() {
+    return this.topicWithNotes.asObservable();
   }
 
   get topicFilters$() {
@@ -40,6 +49,10 @@ export class GlobalStateService {
 
   setTopic(topics: Topic[]) {
     this.topics.next(topics);
+  }
+
+  setTopicWithNotes(topicWithNotes: TopicWithNotesResponse) {
+    this.topicWithNotes.next(topicWithNotes);
   }
 
   setUser(user: User) {

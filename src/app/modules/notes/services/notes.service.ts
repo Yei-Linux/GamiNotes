@@ -4,6 +4,7 @@ import { map, Observable, shareReplay } from 'rxjs';
 
 import { Response } from 'src/app/core/models/generic/Response.model';
 import { Note } from 'src/app/core/models/notes/Note.model';
+import { PatchNoteRequest } from 'src/app/core/models/notes/PatchNoteRequest.model';
 import { UpdateNoteRequest } from 'src/app/core/models/notes/UpdateNoteRequest.model';
 import { environment } from 'src/environments/environment';
 import { CreateNoteRequest } from '../../../core/models/notes/CreateNoteRequest.model';
@@ -18,6 +19,18 @@ export class NotesService {
     return this.http
       .get<Response<Note>>(
         environment.api.notes.findById.replaceParamsInUrl(noteId)
+      )
+      .pipe(
+        map((response) => response.data),
+        shareReplay()
+      );
+  }
+
+  patchNote(note: PatchNoteRequest, noteId: string): Observable<Note | null> {
+    return this.http
+      .put<Response<Note>>(
+        environment.api.notes.udpate.replaceParamsInUrl(noteId),
+        note
       )
       .pipe(
         map((response) => response.data),
@@ -40,6 +53,17 @@ export class NotesService {
   createNote(note: CreateNoteRequest): Observable<Note | null> {
     return this.http
       .post<Response<Note>>(environment.api.notes.create, note)
+      .pipe(
+        map((response) => response.data),
+        shareReplay()
+      );
+  }
+
+  deleteNote(noteId: string) {
+    return this.http
+      .delete<Response<Note>>(
+        environment.api.notes.delete.replaceParamsInUrl(noteId)
+      )
       .pipe(
         map((response) => response.data),
         shareReplay()

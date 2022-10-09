@@ -27,8 +27,8 @@ export class NoteCreateComponent implements OnInit {
   }
 
   get topicId() {
-    const activeRouteParams = this.activeRoute.snapshot.paramMap;
-    const topicId = activeRouteParams.get('id');
+    const activeRouteParams = this.activeRoute.parent?.snapshot.paramMap;
+    const topicId = activeRouteParams?.get('id');
 
     return topicId;
   }

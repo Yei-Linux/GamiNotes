@@ -23,12 +23,9 @@
   </wrapper-header>
 
   <wrapper-content>
-    <div
-      class="grid__cuadric"
-      *ngIf="topicWithNotes$ | async; let topicWithNotes"
-    >
+    <div class="grid__cuadric" *ngIf="topicWithNotes">
       <app-note-card
-        *ngFor="let note of $any(topicWithNotes).notes"
+        *ngFor="let note of topicWithNotes.notes"
         [note]="note"
       ></app-note-card>
     </div>

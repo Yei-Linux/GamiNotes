@@ -11,6 +11,7 @@ export const environment = {
       findById: '/topics/{{id}}',
       create: '/topics',
       udpate: '/topics/{{id}}',
+      delete: '/topics/{{id}}',
       findTopicWithNotes: '/topics/{{id}}/notes',
     },
     notes: {
@@ -18,6 +19,7 @@ export const environment = {
       findById: '/notes/{{id}}',
       create: '/notes',
       udpate: '/notes/{{id}}',
+      delete: '/notes/{{id}}',
     },
     shared: {
       topics: {

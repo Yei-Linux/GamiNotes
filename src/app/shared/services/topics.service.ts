@@ -95,4 +95,15 @@ export class TopicsService {
         shareReplay()
       );
   }
+
+  deleteTopic(topicId: string) {
+    return this.http
+      .delete<Response<Topic>>(
+        environment.api.topics.delete.replaceParamsInUrl(topicId)
+      )
+      .pipe(
+        map((response) => response.data),
+        shareReplay()
+      );
+  }
 }

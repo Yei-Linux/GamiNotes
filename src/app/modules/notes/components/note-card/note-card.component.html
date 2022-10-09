@@ -1,5 +1,5 @@
 <ng-template #tooltipdropdown>
-  <app-note-dropdown></app-note-dropdown>
+  <app-note-dropdown [note]="note"></app-note-dropdown>
 </ng-template>
 
 <div class="gamicard">
@@ -35,8 +35,8 @@
           <app-icon
             debounce
             (debounceClick)="handleMarkAsFavorite()"
-            [tooltip]="'Mark as favorite'"
-            [identifier]="'heart'"
+            [tooltip]="tooltipLikeText"
+            [identifier]="isLike"
           ></app-icon>
           <app-icon
             [componentTooltip]="tooltipdropdown"

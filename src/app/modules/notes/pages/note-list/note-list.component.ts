@@ -18,7 +18,7 @@ export class NoteListComponent implements OnInit {
   @ViewChild('SwalNotePracticeModes')
   swalNotePracticeModes?: SwalComponent;
 
-  topicWithNotes$: Observable<TopicWithNotesResponse | null> = new Observable();
+  topicWithNotes: TopicWithNotesResponse | null = new TopicWithNotesResponse();
   constructor(
     private topicService: TopicsService,
     private route: ActivatedRoute,
@@ -37,10 +37,11 @@ export class NoteListComponent implements OnInit {
   fetchTopicWithNotes() {
     if (!this.topicId) return;
 
-    this.topicWithNotes$ = this.topicService.findTopicWithNotes(
-      this.notesFilters,
-      this.topicId
-    );
+    this.topicService
+      .findTopicWithNotes(this.notesFilters, this.topicId)
+      .subscribe((topicWithNotes) => {
+        this.topicWithNotes = topicWithNotes;
+      });
   }
 
   suscribers() {

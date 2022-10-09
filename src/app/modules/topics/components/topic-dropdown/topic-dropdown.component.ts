@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { catchError, throwError } from 'rxjs';
 import { topicDropdownOptions } from 'src/app/core/constants/topic.constants';
+import { PatchTopicRequest } from 'src/app/core/models/topics/PatchTopicRequest';
 import { Topic } from 'src/app/core/models/topics/Topic.model';
 import { TopicFilters } from 'src/app/core/models/topics/TopicFilters.model';
 import { IDropDown } from 'src/app/core/types/IDropdown';
@@ -62,6 +63,24 @@ export class TopicDropdownComponent implements OnInit {
     this.fetchAllTopics();
   }
 
+  handleAddAsIgnored() {
+    const patchTopicRequest = new PatchTopicRequest({
+      is_ignored: !this.topic.is_ignored,
+    });
+
+    this.topicService
+      .patchTopic(patchTopicRequest, this.topic._id)
+      .subscribe(() => {
+        this.fetchAllTopics();
+      });
+  }
+
+  handleDelete() {
+    this.topicService.deleteTopic(this.topic._id).subscribe(() => {
+      this.fetchAllTopics();
+    });
+  }
+
   handleClickListItem({ id, url }: IDropDown): void {
     if (url) return;
 
@@ -69,7 +88,19 @@ export class TopicDropdownComponent implements OnInit {
       this.handleShowModal();
       return;
     }
+
+    if (id === 'ignore') {
+      this.handleAddAsIgnored();
+      return;
+    }
+
+    if (id === 'delete') {
+      this.handleDelete();
+      return;
+    }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.suscribers();
+  }
 }
