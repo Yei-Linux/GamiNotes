@@ -15,10 +15,12 @@ import { TooltipDirective } from './directives/tooltip.directive';
 import { WrapperComponent } from './layouts/wrapper/wrapper.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './components/search/search.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './layouts/header/header.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { DebounceDirective } from './directives/debounce.directive';
+import { FiltersComponent } from './layouts/filters/filters.component';
+import { ToggleComponent } from './components/toggle/toggle.component';
 
 const schema = [
   //UI Components
@@ -33,6 +35,7 @@ const schema = [
   CustomTooltipComponent,
   SearchComponent,
   BreadcrumbComponent,
+  ToggleComponent,
 
   //Reused Components
   TopicPracModal,
@@ -45,11 +48,12 @@ const schema = [
   //Layouts
   WrapperComponent,
   HeaderComponent,
+  FiltersComponent,
 ];
 
 @NgModule({
   declarations: schema,
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   exports: schema,
   schemas: [NO_ERRORS_SCHEMA],
 })

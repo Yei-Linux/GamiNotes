@@ -1,0 +1,9 @@
+.notelist {
+  height: 100%;
+
+  &__grid {
+    height: -webkit-fill-available;
+
+    @apply flex items-center;
+  }
+}

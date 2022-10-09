@@ -1,0 +1,12 @@
+<label [for]="myId" class="toggle">
+  <input
+    type="checkbox"
+    [ngModel]="toggle"
+    (ngModelChange)="handleToggle($event)"
+    [id]="myId"
+    class="toggle__input peer"
+  />
+  <div
+    class="toggle__background peer-focus:outline-none peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-gami-primary"
+  ></div>
+</label>

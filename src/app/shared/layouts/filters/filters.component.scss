@@ -1,0 +1,32 @@
+.filters {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 5%);
+  backdrop-filter: blur(2.5px);
+
+  @apply rounded-lg p-3;
+
+  &__title {
+    @apply flex gap-x-3 mb-3;
+
+    &__preffix {
+      &::ng-deep {
+        app-icon {
+          i {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    p {
+      color: #8a8cff;
+      @apply font-bold;
+    }
+  }
+  &__content {
+    @apply flex gap-x-3;
+    &__item {
+      @apply flex gap-x-3;
+    }
+  }
+}

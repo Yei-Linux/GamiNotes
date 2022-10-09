@@ -1,0 +1,18 @@
+<div class="filters">
+  <div class="filters__title">
+    <span class="filters__title__preffix">
+      <app-icon identifier="funnel-fill" variation="secondary"></app-icon>
+    </span>
+    <p>{{ title }}:</p>
+  </div>
+  <div class="filters__content">
+    <div class="filters__content__item">
+      <app-text text="Like" [classname]="'text-sm'"></app-text>
+      <app-toggle #liketoggle></app-toggle>
+    </div>
+    <div class="filters__content__item">
+      <app-text text="Ignored" [classname]="'text-sm'"></app-text>
+      <app-toggle #ignoredtoggle></app-toggle>
+    </div>
+  </div>
+</div>

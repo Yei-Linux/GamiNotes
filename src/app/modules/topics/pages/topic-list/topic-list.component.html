@@ -11,11 +11,18 @@
   </wrapper-header>
 
   <wrapper-content>
-    <div class="grid__cuadric">
-      <app-topic-card
-        *ngFor="let topic of topics"
-        [topic]="topic"
-      ></app-topic-card>
+    <div class="topiclist">
+      <div class="topiclist__filters">
+        <app-filters></app-filters>
+      </div>
+      <div class="topiclist__grid">
+        <div class="grid__cuadric">
+          <app-topic-card
+            *ngFor="let topic of topics"
+            [topic]="topic"
+          ></app-topic-card>
+        </div>
+      </div>
     </div>
   </wrapper-content>
 

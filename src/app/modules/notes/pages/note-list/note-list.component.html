@@ -23,11 +23,18 @@
   </wrapper-header>
 
   <wrapper-content>
-    <div class="grid__cuadric" *ngIf="topicWithNotes">
-      <app-note-card
-        *ngFor="let note of topicWithNotes.notes"
-        [note]="note"
-      ></app-note-card>
+    <div class="notelist">
+      <div class="notelist__filters">
+        <app-filters></app-filters>
+      </div>
+      <div class="notelist__grid">
+        <div class="grid__cuadric" *ngIf="topicWithNotes">
+          <app-note-card
+            *ngFor="let note of topicWithNotes.notes"
+            [note]="note"
+          ></app-note-card>
+        </div>
+      </div>
     </div>
   </wrapper-content>
 

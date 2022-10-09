@@ -11,6 +11,7 @@ import { CoreModule } from './core/core.module';
 
 import './shared/helpers/prototypes';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     BrowserModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
   providers: [GlobalStateService],
