@@ -12,10 +12,10 @@ import { User } from '../../core/models/login/User.model';
 })
 export class GlobalStateService {
   private topicFilters = new BehaviorSubject<TopicFilters>(
-    new TopicFilters(0, 15, '')
+    new TopicFilters(0, 15, '', false, false)
   );
   private noteFilters = new BehaviorSubject<NoteFilters>(
-    new NoteFilters(0, 15, '')
+    new NoteFilters(0, 15, '', false, false)
   );
   private user = new BehaviorSubject<User>(
     new User('631cda65e254720368a68d40', '', '')
@@ -59,11 +59,35 @@ export class GlobalStateService {
     this.user.next(user);
   }
 
-  setTopicFilters({ search = '', page }: { search: string; page: number }) {
-    this.topicFilters.next(new TopicFilters(page, 15, search));
+  setTopicFilters({
+    search = '',
+    page,
+    is_ignored,
+    is_liked,
+  }: {
+    search: string;
+    page: number;
+    is_liked?: boolean;
+    is_ignored?: boolean;
+  }) {
+    this.topicFilters.next(
+      new TopicFilters(page, 15, search, is_liked ?? false, is_ignored ?? false)
+    );
   }
 
-  setNoteFilters({ search = '', page }: { search: string; page: number }) {
-    this.noteFilters.next(new NoteFilters(page, 15, search));
+  setNoteFilters({
+    search = '',
+    page,
+    is_ignored,
+    is_liked,
+  }: {
+    search: string;
+    page: number;
+    is_liked?: boolean;
+    is_ignored?: boolean;
+  }) {
+    this.noteFilters.next(
+      new NoteFilters(page, 15, search, is_liked ?? false, is_ignored ?? false)
+    );
   }
 }

@@ -21,6 +21,8 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { DebounceDirective } from './directives/debounce.directive';
 import { FiltersComponent } from './layouts/filters/filters.component';
 import { ToggleComponent } from './components/toggle/toggle.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { MulticheckboxFormComponent } from './components/multicheckbox-form/multicheckbox-form.component';
 
 const schema = [
   //UI Components
@@ -36,6 +38,8 @@ const schema = [
   SearchComponent,
   BreadcrumbComponent,
   ToggleComponent,
+  CheckboxComponent,
+  MulticheckboxFormComponent,
 
   //Reused Components
   TopicPracModal,

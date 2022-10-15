@@ -1,0 +1,30 @@
+<div class="gamimulticheckbox__form">
+  <div class="gamimulticheckbox__form__header">
+    <div class="gamimulticheckbox__form__header__title">
+      <app-text
+        [text]="title"
+        [classname]="'text-base font-bold text--overflow'"
+      ></app-text>
+    </div>
+
+    <div class="gamimulticheckbox__form__header__subtitle">
+      <app-text
+        text="Select All"
+        [classname]="'text-xs !text-gami-secondary font-semibold'"
+      ></app-text>
+    </div>
+  </div>
+
+  <div class="gamimulticheckbox__form__body">
+    <form action="" [formGroup]="form">
+      <app-checkbox formControlName="like" text="Like"></app-checkbox>
+      <app-checkbox formControlName="notike" text="Not Like"></app-checkbox>
+    </form>
+  </div>
+
+  <div class="gamimulticheckbox__form__footer">
+    <app-button className="!w-full" [type]="'submit'" [variation]="'tertiary'">
+      <button-content> {{ buttonText }} </button-content>
+    </app-button>
+  </div>
+</div>

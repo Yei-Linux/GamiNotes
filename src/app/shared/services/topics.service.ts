@@ -23,7 +23,9 @@ export class TopicsService {
     const params = new HttpParams()
       .set('page', filters.page)
       .set('size', filters.size)
-      .set('search', filters.search);
+      .set('search', filters.search)
+      .set('is_liked', filters.is_liked ?? false)
+      .set('is_ignored', filters.is_ignored ?? false);
 
     return this.http
       .get<Response<Topic[]>>(environment.api.topics.findAll, {
@@ -42,7 +44,9 @@ export class TopicsService {
     const params = new HttpParams()
       .set('page', filters.page)
       .set('size', filters.size)
-      .set('search', filters.search);
+      .set('search', filters.search)
+      .set('is_liked', filters.is_liked ?? false)
+      .set('is_ignored', filters.is_ignored ?? false);
 
     return this.http
       .get<Response<TopicWithNotesResponse>>(

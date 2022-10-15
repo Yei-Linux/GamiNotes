@@ -13,6 +13,10 @@
     border-style: solid;
   }
 
+  &--tertiary {
+    @apply bg-gami-secondary text-white;
+  }
+
   &__icon {
     display: inline-block;
     &--before {

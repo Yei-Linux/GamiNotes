@@ -57,7 +57,7 @@ export class CustomTooltipDirective extends TooltipLogic<CustomTooltipComponent>
     }
     this.createTooltip('componentTooltip', this.componentTooltip);
   }
-
+  
   //TODO: Improve this hostlistener
   @HostListener('document:click', ['$event'])
   clickout(event: any) {

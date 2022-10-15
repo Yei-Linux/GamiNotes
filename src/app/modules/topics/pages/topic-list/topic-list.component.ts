@@ -23,7 +23,12 @@ export class TopicListComponent implements OnInit {
   }
 
   handleSearch(searcher: string) {
-    this.globalState.setTopicFilters({ search: searcher, page: 0 });
+    if (!this.topicFilters) return;
+
+    this.globalState.setTopicFilters({
+      ...this.topicFilters,
+      search: searcher,
+    });
   }
 
   fetchAllTopics() {

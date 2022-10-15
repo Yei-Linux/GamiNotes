@@ -1,0 +1,18 @@
+.gamimulticheckbox__form {
+  background-color: white;
+  max-width: 250px;
+  @apply grid gap-2 p-4 rounded-lg;
+
+  &__header {
+    @apply grid gap-2;
+
+    &__subtitle {
+      @apply py-2;
+    }
+  }
+  &__body {
+  }
+  &__footer {
+    @apply p-2;
+  }
+}

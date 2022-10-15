@@ -18,7 +18,7 @@ export class NoteDropdownComponent implements OnInit {
   @Input()
   note: Note = new Note();
 
-  notesFilters: NoteFilters = new NoteFilters(0, 15, '');
+  notesFilters: NoteFilters = new NoteFilters(0, 15, '', false, false);
   noteDropdownOptions = noteDropdownOptions;
   constructor(
     private topicService: TopicsService,

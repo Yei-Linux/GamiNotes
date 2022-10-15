@@ -13,7 +13,7 @@ import { TopicsService } from 'src/app/shared/services/topics.service';
   styleUrls: ['./note-list.component.scss'],
 })
 export class NoteListComponent implements OnInit {
-  notesFilters: NoteFilters = new NoteFilters(0, 15, '');
+  notesFilters: NoteFilters = new NoteFilters(0, 15, '', false, false);
 
   @ViewChild('SwalNotePracticeModes')
   swalNotePracticeModes?: SwalComponent;
@@ -31,7 +31,11 @@ export class NoteListComponent implements OnInit {
   }
 
   handleSearch(searcher: string) {
-    this.globalState.setNoteFilters({ search: searcher, page: 0 });
+    this.globalState.setNoteFilters({
+      ...this.notesFilters,
+      search: searcher,
+      page: 0,
+    });
   }
 
   fetchTopicWithNotes() {
